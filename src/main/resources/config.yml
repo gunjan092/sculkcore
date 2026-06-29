@@ -1,0 +1,182 @@
+# ==========================================
+# SculkCore Configuration (SMPCore Remake)
+# ==========================================
+
+# Core settings
+config:
+  # Size of the border before the SMP event starts
+  before_start_border: 1000
+  # Border size at start of event
+  start_border_size: 1000
+  # AFK protection time command setting
+  afk_protection_time_command: 300
+  # AFK protection time in seconds
+  afk_protection_time: 300
+  # Particle color for altar ritual (hex format)
+  ritual_particle_color: "#FF0000"
+  # Duration of the altar ritual in seconds
+  ritual_duration: 10
+  # Radius of the altar ritual effect
+  ritual_radius: 5
+
+# Custom item settings (e.g. Golden Head)
+goldenhead:
+  cooldown: 10
+  consume_seconds: 1.0
+  speed_amplifier: 1
+  speed_duration: 5
+  absorption_amplifier: 1
+  absorption_duration: 120
+  regeneration_amplifier: 2
+  regeneration_duration: 10
+
+# Event rules and features toggles
+rules:
+  # Enable PvP after grace period starts
+  pvp: false
+  # Grace period duration in minutes
+  grace_duration: 40
+  # Extra damage modifier added to normal damage
+  extra_damage: 0.0
+  # Enable/disable mace shield stun
+  mace_stun_shield: true
+  # Mace weapon enable/disable
+  mace: true
+  # Mace stack limit per player
+  mace_limit: 1
+  # Ban mace completely
+  ban_mace: false
+  # Cancel mace damage limiter
+  mace_damage_limiter: false
+  # Spear cooldown in ticks
+  spear_cooldown: 20
+  # Spear damage limit
+  spear_damage_limiter: false
+  # Lunge cooldown in ticks
+  lunge_cooldown: 40
+  # Trident usage rules
+  trident: true
+  # Wind charge usage rules
+  wind_charge: true
+  # Ender pearl usage rules
+  ender_pearl: true
+  # Ban ender pearls completely
+  ban_pearls: false
+  # Gap/Golden apple eating rules
+  gap: true
+  # Ban crystal PvP completely
+  ban_crystal_pvp: false
+  # Ban minimap mods
+  ban_minimap: false
+  # Protect naked/gearless players
+  naked_protection: false
+  # Protect AFK players
+  afk_protection: false
+  # Custom combat tag/combat system
+  combat_system: true
+  # Combat tag log message settings
+  combat_display: true
+  combat_message: "&cYou are now in combat for &f&l<combat_time>"
+  # Ban netherite gear
+  ban_netherite: false
+  # Ban killing villagers
+  ban_killing_villagers: false
+  # Infinite villager restock
+  infinite_restock: true
+  # Prevent player health indicators
+  anti_health_indicators: false
+  # Always show health indicators
+  always_health_indicators: false
+  # Group/clump item drops
+  clumps: true
+  # Ban cart riding/interactions
+  ban_carts: false
+  # Cart damage limiter
+  cart_damage_limiter: false
+  # Ban bed bombing in Nether/End
+  ban_bed_bombing: false
+  # TNT damage limiter
+  tnt_damage_limiter: false
+  # Crystal damage limiter
+  crystal_damage_limiter: false
+  # Arrow damage limiter
+  arrow_damage_limiter: false
+  # Fall damage limiter
+  fall_damage_limiter: false
+  # Ban seed cracking mod detection
+  ban_seed_cracking: true
+  # Ban all tipped arrows
+  ban_all_tipped_arrows: false
+  # Ban breach enchantment swapping
+  ban_breach_swapping: false
+  # Ban Tier 2 potions
+  ban_tier_2_potions: false
+  # Prevent string duping exploits
+  string_dupers: true
+  # Warden spawning or drop custom logic
+  warden: true
+  # Hide killer names in death messages
+  hide_killer: false
+  # Hide killed names in death messages
+  hide_killed: false
+  # Drop custom settings
+  drops: true
+  # Custom death sounds and pitch
+  death_sound: "entity.lightning_bolt.thunder"
+  death_sound_pitch: 1.0
+  # Make custom dropped items glow
+  make_custom_items_glow: true
+  # Make custom items invulnerable/immortal on death
+  immortal_item: true
+  # Stop storing custom items in chests/inventories
+  stop_storring_custom_items: false
+  # Allow dropping items that cannot be stored
+  allow_dropping_no_store_items: true
+  # Custom HappyGhast settings
+  happyGhastSpeed: 1.0
+  # Click Villager rules
+  clickVillager: true
+  clickVillager_anchor: true
+  clickVillager_owner: true
+  # Disable Vault hook integration
+  disable_vaults: false
+  # Spectator mode on death
+  spectator: true
+  # Ban player on death
+  death_ban: false
+  # Shield cooldown on block break (ticks)
+  shield_cooldown: 60
+
+# Banned tipped-arrow effects (effect keys, e.g. "poison", "slowness").
+# Configured via /settings -> Banned Tipped Arrows.
+banned-tipped: []
+
+# Banned potion effects by tier. Tier 1 = level I (amplifier 0), Tier 2 = level II+ (amplifier >= 1).
+# Configured via /settings -> Banned Potion Effects.
+banned-tier1-effects: []
+banned-tier2-effects: []
+
+# Per-enchantment level limits. Configured via /settings -> Enchantment Limits.
+#   -1 (or absent) = allowed at any level
+#    0             = banned entirely (stripped)
+#    n             = capped at level n
+enchant-limits: {}
+
+# Altar system settings
+altarSettings:
+  blocktype: "GOLD_BLOCK"
+
+# Custom Altars definition
+altars:
+  gold:
+    name: "&6Gold Altar"
+    hologram-height: 2.2
+    hologram:
+      - "&e--- GOLD ALTAR ---"
+      - "&7Place item to activate"
+    recipe:
+      ingredients:
+        - material: GOLD_INGOT
+          amount: 8
+        - material: GOLD_BLOCK
+          amount: 1

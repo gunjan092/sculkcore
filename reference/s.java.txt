@@ -1,0 +1,2605 @@
+﻿/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  org.bukkit.Bukkit
+ *  org.bukkit.ChatColor
+ *  org.bukkit.Color
+ *  org.bukkit.GameRule
+ *  org.bukkit.GameRules
+ *  org.bukkit.Material
+ *  org.bukkit.World
+ *  org.bukkit.configuration.file.FileConfiguration
+ *  org.bukkit.entity.Player
+ *  org.bukkit.inventory.ItemFlag
+ *  org.bukkit.inventory.ItemStack
+ *  org.bukkit.inventory.meta.ItemMeta
+ *  org.bukkit.inventory.meta.PotionMeta
+ */
+package dev.sculkcore.commands;
+
+import java.lang.invoke.CallSite;
+import java.util.ArrayList;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
+import org.bukkit.GameRule;
+import org.bukkit.GameRules;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
+
+
+
+
+
+public class s {
+    static FileConfiguration a;
+    public static String b;
+    private static final String[] c;
+    private static final String[] d;
+
+    public static ItemStack a() {
+        ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<CallSite> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "LOCATOR BAR"));
+                    arrayList = new ArrayList<CallSite>();
+                    World world = (World)Bukkit.getWorlds().get(0);
+                    boolean bl2 = (Boolean)world.getGameRuleValue(GameRule.LOCATOR_BAR);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"))));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.RED) + bg.a(" Disabled"))));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack b() {
+        ItemStack itemStack = new ItemStack(Material.GLOW_ITEM_FRAME);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<CallSite> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "MAKE CUSTOM ITEMS GLOW"));
+                    arrayList = new ArrayList<CallSite>();
+                    String string = bg.a("\u00a77LMB to toggle making items glow when dropped");
+                    String string2 = String.valueOf(ChatColor.GRAY);
+                    arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string2 + string)));
+                    boolean bl2 = Main.getInstance().getConfig().getBoolean("rules.make_custom_items_glow", false);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"))));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.RED) + bg.a(" Disabled"))));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack c() {
+        ItemStack itemStack = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        try {
+            if (itemMeta != null) {
+                itemMeta.setDisplayName(bg.a("\u00a7b\u00a7lCOOLDOWNS"));
+                itemStack.setItemMeta(itemMeta);
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack d() {
+        ItemStack itemStack = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        try {
+            if (itemMeta != null) {
+                itemMeta.setDisplayName(bg.a("\u00a7e\u00a7lDamage Limiters"));
+                itemStack.setItemMeta(itemMeta);
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack e() {
+        ItemStack itemStack = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        try {
+            if (itemMeta != null) {
+                itemMeta.setDisplayName(bg.a("\u00a76\u00a7lAnticheat"));
+                itemStack.setItemMeta(itemMeta);
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack f() {
+        ItemStack itemStack = new ItemStack(Material.RED_STAINED_GLASS_PANE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        try {
+            if (itemMeta != null) {
+                itemMeta.setDisplayName(bg.a("\u00a7c\u00a7lBanning"));
+                itemStack.setItemMeta(itemMeta);
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack g() {
+        ItemStack itemStack = new ItemStack(Material.BEDROCK);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "IMMORTAL DEATH DROPS"));
+                    arrayList = new ArrayList<Object>();
+                    String string = bg.a("\u00a77LMB to make all death drops INVULNERABLE");
+                    String string2 = String.valueOf(ChatColor.GRAY);
+                    arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+                    arrayList.add(" ");
+                    boolean bl2 = Main.getInstance().getConfig().getBoolean("rules.immortal_item", false);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack h() {
+        ItemStack itemStack = new ItemStack(Material.BUCKET);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<CallSite> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "BAN DRAINING"));
+                    boolean bl2 = Main.getInstance().getConfig().getBoolean("rules.anti_draining", false);
+                    arrayList = new ArrayList<CallSite>();
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GREEN) + bg.a("Enabled"))));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.RED) + bg.a("Disabled"))));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack i() {
+        ItemStack itemStack = new ItemStack(Material.valueOf("DIAMOND_SPEAR"));
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "SPEAR COOLDOWN"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            int n2 = Main.getInstance().getConfig().getInt("rules.spear_cooldown", 0);
+            int n3 = Main.getInstance().getConfig().getInt("rules.lunge_cooldown", 0);
+            String string = "SPEAR COOLDOWN";
+            String string2 = "LUNGE COOLDOWN";
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + " " + n2);
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ":" + String.valueOf(ChatColor.GREEN) + " " + n3);
+            arrayList.add(" ");
+            String string3 = bg.a("\u00a77LMB TO INCREASE VALUE");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77RMB TO DECREASE VALUE");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string6 + string5);
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("SHIFT TO MODIFY THE SECOND VALUE"));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack j() {
+        ItemStack itemStack = new ItemStack(Material.ECHO_SHARD);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "RITUALS"));
+            String string = Main.getInstance().getConfig().getString("config.ritual_particle_color", "white");
+            ChatColor chatColor = q.a();
+            String string2 = string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
+            int n2 = a.getInt("config.ritual_duration", 60);
+            double d2 = a.getDouble("config.ritual_radius", 5.0);
+            int n3 = n2;
+            int n4 = n3 / 3600;
+            int n5 = n3 % 3600 / 60;
+            int n6 = n3 % 60;
+            String string3 = n4 > 0 ? String.format("%02d:%02d:%02d", n4, n5, n6) : String.format("%02d:%02d", n5, n6);
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("/ritual while holding an item to start a normal ritual"));
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("EDIT CRAFTABLE ITEMS THAT START A RITUAL"));
+            arrayList.add("");
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("COLOR: ") + String.valueOf(ChatColor.RESET) + String.valueOf(chatColor) + string2);
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("DURATION: ") + string3);
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("RADIUS: ") + d2);
+            arrayList.add("");
+            String string4 = bg.a("\u00a77LMB TO EDIT RITUAL ITEMS");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string5 + string4);
+            String string6 = bg.a("\u00a77RMB FOR RITUAL SETTINGS");
+            String string7 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string7 + string6);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack k() {
+        ItemStack itemStack = new ItemStack(Material.MACE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block12: {
+                block11: {
+                    boolean bl2;
+                    block10: {
+                        block9: {
+                            boolean bl3;
+                            block8: {
+                                block7: {
+                                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "MACE"));
+                                    arrayList = new ArrayList<Object>();
+                                    boolean bl4 = a.getBoolean("rules.mace_limit", false);
+                                    bl3 = a.getBoolean("rules.ban_mace", false);
+                                    bl2 = a.getBoolean("rules.mace_stun_shield", false);
+                                    try {
+                                        if (!bl4) break block7;
+                                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("ONE TIME CRAFT") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                                        break block8;
+                                    }
+                                    catch (NumberFormatException numberFormatException) {
+                                        throw s.a(numberFormatException);
+                                    }
+                                }
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("ONE TIME CRAFT") + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+                            }
+                            try {
+                                if (!bl3) break block9;
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("BAN THE MACE") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" True"));
+                                break block10;
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                throw s.a(numberFormatException);
+                            }
+                        }
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("BAN THE MACE") + ":" + String.valueOf(ChatColor.RED) + bg.a(" False"));
+                    }
+                    try {
+                        if (!bl2) break block11;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("MACE STUNS SHIELD") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" True"));
+                        break block12;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("MACE STUNS SHIELD") + ":" + String.valueOf(ChatColor.RED) + bg.a(" False"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            String string3 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77DROP FOR OPTION 3");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u25ce " + string6 + string5);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack l() {
+        ItemStack itemStack = new ItemStack(Material.END_CRYSTAL);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "BAN CRYSTAL PVP"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.ban_crystal_pvp", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack m() {
+        ItemStack itemStack = new ItemStack(Material.MAP);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ANTI MINIMAP"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.ban_minimap", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack n() {
+        ItemStack itemStack = new ItemStack(Material.LEATHER_HELMET);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "NAKED PROTECTION"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.naked_protection", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack o() {
+        ItemStack itemStack = new ItemStack(Material.CLOCK);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "AFK PROTECTION"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.afk_protection", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack p() {
+        ItemStack itemStack = new ItemStack(Material.DIAMOND_AXE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block4: {
+                String string;
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "COMBAT RULES"));
+                    arrayList = new ArrayList<Object>();
+                    boolean bl2 = a.getBoolean("rules.combat_system", true);
+                    string = "COMBAT LOG SYSTEM";
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            String string3 = bg.a("\u00a77RMB FOR MORE OPTIONS");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string4 + string3);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack q() {
+        ItemStack itemStack = new ItemStack(Material.NETHERITE_INGOT);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "BAN NETHERITE"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.ban_netherite", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack r() {
+        ItemStack itemStack = new ItemStack(Material.VILLAGER_SPAWN_EGG);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "BAN KILLING VILLAGERS"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.ban_killing_villagers", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack s() {
+        ItemStack itemStack = new ItemStack(Material.EMERALD);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "INFINITE RESTOCK"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.infinite_restock", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack t() {
+        ItemStack itemStack = new ItemStack(Material.NETHER_STAR);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block8: {
+                String string;
+                block7: {
+                    boolean bl2;
+                    block6: {
+                        String string2;
+                        block5: {
+                            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "HEALTH INDICATOR"));
+                            arrayList = new ArrayList<Object>();
+                            boolean bl3 = a.getBoolean("rules.anti_health_indicators", true);
+                            bl2 = a.getBoolean("rules.always_health_indicators", true);
+                            string2 = "ANTI HEALTH INDICATOR";
+                            string = "BUILT-IN HEALTH INDICATOR";
+                            try {
+                                if (!bl3) break block5;
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                                break block6;
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                throw s.a(numberFormatException);
+                            }
+                        }
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+                    }
+                    try {
+                        if (!bl2) break block7;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                        break block8;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string);
+            String string4 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            itemMeta.setLore(arrayList);
+            itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(false));
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack u() {
+        ItemStack itemStack = new ItemStack(Material.EXPERIENCE_BOTTLE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "CLUMPS"));
+                    arrayList = new ArrayList<Object>();
+                    boolean bl2 = a.getBoolean("rules.clumps", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            arrayList.add(" ");
+            arrayList.add(String.valueOf(ChatColor.LIGHT_PURPLE) + bg.a("PURPOSE: MAKES IT SO PLAYERS CAN INSTANTLY PICK UP XP"));
+            arrayList.add(String.valueOf(ChatColor.LIGHT_PURPLE) + bg.a("SO THERE WON'T BE ANY HOVERING XP"));
+            itemMeta.setLore(arrayList);
+            itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(false));
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack v() {
+        ItemStack itemStack = new ItemStack(Material.SHIELD);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block12: {
+                block11: {
+                    boolean bl2;
+                    block10: {
+                        block9: {
+                            boolean bl3;
+                            block8: {
+                                block7: {
+                                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "SHIELD TWEAKS"));
+                                    arrayList = new ArrayList<Object>();
+                                    boolean bl4 = a.getBoolean("shield_tweaks.sound_fix", false);
+                                    bl3 = a.getBoolean("shield_tweaks.5_tick_delay_fix", false);
+                                    bl2 = a.getBoolean("shield_tweaks.skip-vanilla-damage-tick-when-shield-blocked", false);
+                                    try {
+                                        if (!bl4) break block7;
+                                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("SHIELD SOUND FIX") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                                        break block8;
+                                    }
+                                    catch (NumberFormatException numberFormatException) {
+                                        throw s.a(numberFormatException);
+                                    }
+                                }
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("SHIELD SOUND FIX") + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+                            }
+                            try {
+                                if (!bl3) break block9;
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("5 TICK DELAY FIX") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                                break block10;
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                throw s.a(numberFormatException);
+                            }
+                        }
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("5 TICK DELAY FIX") + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+                    }
+                    try {
+                        if (!bl2) break block11;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("SKIP VANILLA DAMAGE TICK") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                        break block12;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("SKIP VANILLA DAMAGE TICK") + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            String string3 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77DROP FOR OPTION 3");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u25ce " + string6 + string5);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack w() {
+        ItemStack itemStack = new ItemStack(Material.WHITE_BED);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ONE PLAYER SLEEP"));
+                    arrayList = new ArrayList<String>();
+                    World world = (World)Bukkit.getWorlds().get(0);
+                    int n2 = (Integer)world.getGameRuleValue(GameRules.PLAYERS_SLEEPING_PERCENTAGE);
+                    try {
+                        if (n2 != 1) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack x() {
+        ItemStack itemStack = new ItemStack(Material.END_STONE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block8: {
+                String string;
+                block7: {
+                    boolean bl2;
+                    block6: {
+                        String string2;
+                        block5: {
+                            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "DIMENSION BAN"));
+                            arrayList = new ArrayList<Object>();
+                            boolean bl3 = a.getBoolean("dimensions.allow_nether", true);
+                            bl2 = a.getBoolean("dimensions.allow_end", false);
+                            string2 = "ALLOW NETHER";
+                            string = "ALLOW END";
+                            try {
+                                if (!bl3) break block5;
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" True"));
+                                break block6;
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                throw s.a(numberFormatException);
+                            }
+                        }
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ":" + String.valueOf(ChatColor.RED) + bg.a(" False"));
+                    }
+                    try {
+                        if (!bl2) break block7;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" True"));
+                        break block8;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.RED) + bg.a(" False"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string);
+            String string4 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack y() {
+        ItemStack itemStack = new ItemStack(Material.DIAMOND_PICKAXE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            int n2;
+            ArrayList<Object> arrayList;
+            block4: {
+                String string;
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ANTI-XRAY"));
+                    arrayList = new ArrayList<Object>();
+                    boolean bl2 = a.getBoolean("anticheat.anti-xray.enabled", true);
+                    n2 = a.getInt("anticheat.anti-xray.engine-mode", 1);
+                    string = "ANTI XRAY";
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+            }
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("ENGINE MODE") + ":" + String.valueOf(ChatColor.GREEN) + " " + n2);
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            String string3 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string4 + string3);
+            arrayList.add(bg.a("\u00a7cNOTES: "));
+            arrayList.add(bg.a("\u00a77- MUST RESTART SERVER AND BE USING PAPER FOR THESE CHANGES TO TAKE AFFECT"));
+            arrayList.add(bg.a("\u00a77- YOUR SERVER MUST BE PAPER"));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack z() {
+        ItemStack itemStack = new ItemStack(Material.NETHERITE_AXE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block6: {
+                block5: {
+                    boolean bl2;
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ATTRIBUTE SWAPPING"));
+                    arrayList = new ArrayList<Object>();
+                    try {
+                        bl2 = !a.getBoolean("unsupported-settings.update-equipment-on-player-actions", false);
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                    boolean bl3 = bl2;
+                    try {
+                        if (!bl3) break block5;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block6;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            String string3 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string4 + string3);
+            arrayList.add(bg.a("\u00a7cNOTES: "));
+            arrayList.add(bg.a("\u00a77- MUST RESTART SERVER AND BE USING PAPER FOR THESE CHANGES TO TAKE AFFECT"));
+            arrayList.add(bg.a("\u00a77- YOUR SERVER MUST BE PAPER, VANILLA SERVERS HAVE ATTRIBUTE SWAPPING BY DEFAULT"));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack A() {
+        ItemStack itemStack = new ItemStack(Material.NETHERITE_HELMET);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "HIDE DURABILITY"));
+                    arrayList = new ArrayList<Object>();
+                    boolean bl2 = a.getBoolean("anticheat.obfuscation.items.hide-durability", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            String string3 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string4 + string3);
+            arrayList.add(bg.a("\u00a7cNOTES: "));
+            arrayList.add(bg.a("\u00a77- MUST RESTART SERVER AND BE USING PAPER FOR THESE CHANGES TO TAKE AFFECT"));
+            arrayList.add(bg.a("\u00a77- YOUR SERVER MUST BE PAPER"));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack B() {
+        ItemStack itemStack = new ItemStack(Material.TNT_MINECART);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "BAN TNT MINECARTS"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.ban_carts", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack C() {
+        ItemStack itemStack = new ItemStack(Material.RED_BED);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "BAN BED BOMBING"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.ban_bed_bombing", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack D() {
+        ItemStack itemStack = new ItemStack(Material.NETHERITE_SWORD);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "PVP"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.pvp", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack E() {
+        ItemStack itemStack = new ItemStack(Material.POTION);
+        PotionMeta potionMeta = (PotionMeta)itemStack.getItemMeta();
+        if (potionMeta != null) {
+            ArrayList<Object> arrayList;
+            block7: {
+                String string;
+                int n2;
+                block6: {
+                    potionMeta.setColor(Color.fromRGB((int)255, (int)85, (int)0));
+                    potionMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "DAMAGE MODIFICATION"));
+                    arrayList = new ArrayList<Object>();
+                    n2 = Main.getInstance().getConfig().getInt("rules.extra_damage", 0);
+                    string = "DAMAGE";
+                    try {
+                        if (n2 <= 0) break block6;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + " " + n2 + "\u00a77/20");
+                        break block7;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                try {
+                    if (n2 == 0) {
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GRAY) + " 0\u00a77/20");
+                    }
+                }
+                catch (NumberFormatException numberFormatException) {
+                    throw s.a(numberFormatException);
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.RED) + " " + n2 + "\u00a77/-20");
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB TO INCREASE DAMAGE");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            String string3 = bg.a("\u00a77RMB TO DECREASE DAMAGE");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string4 + string3);
+            arrayList.add(" ");
+            arrayList.add(String.valueOf(ChatColor.LIGHT_PURPLE) + bg.a("PURPOSE: BALANCING PVP, IT WILL NOT AFFECT PVE"));
+            potionMeta.setLore(arrayList);
+            potionMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta((ItemMeta)potionMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack F() {
+        ItemStack itemStack = new ItemStack(Material.ITEM_FRAME);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "INFINITE LIFETIME DROPS"));
+                    arrayList = new ArrayList<Object>();
+                    boolean bl2 = a.getBoolean("rules.drops", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            arrayList.add(" ");
+            arrayList.add(String.valueOf(ChatColor.LIGHT_PURPLE) + bg.a("PURPOSE: MAKES DROPS FROM DEATH NEVER DESPAWN"));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack G() {
+        ItemStack itemStack = new ItemStack(Material.SPECTRAL_ARROW);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        try {
+            if (itemMeta != null) {
+                itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "NEXT PAGE"));
+                itemStack.setItemMeta(itemMeta);
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack H() {
+        ItemStack itemStack = new ItemStack(Material.SPECTRAL_ARROW);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        try {
+            if (itemMeta != null) {
+                itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "LAST PAGE"));
+                itemStack.setItemMeta(itemMeta);
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack a(int n2) {
+        ItemStack itemStack = new ItemStack(Material.BOOK);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            String string = "rules";
+            if (n2 == 2) {
+                string = "balancing";
+            } else if (n2 == 3) {
+                string = "others";
+            } else if (n2 == 4) {
+                string = "customer suggestions";
+            }
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + string));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("PAGE: \u00a77" + n2))));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack I() {
+        ItemStack itemStack = new ItemStack(Material.SKELETON_SKULL);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block8: {
+                String string;
+                block7: {
+                    boolean bl2;
+                    block6: {
+                        String string2;
+                        block5: {
+                            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "DEATH BAN"));
+                            arrayList = new ArrayList<Object>();
+                            boolean bl3 = a.getBoolean("rules.spectator", false);
+                            bl2 = a.getBoolean("rules.death_ban", false);
+                            string2 = "SPECTATOR AFTER DEATH";
+                            string = "BAN AFTER DEATH";
+                            try {
+                                if (!bl3) break block5;
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" True"));
+                                break block6;
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                throw s.a(numberFormatException);
+                            }
+                        }
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ":" + String.valueOf(ChatColor.RED) + bg.a(" False"));
+                    }
+                    try {
+                        if (!bl2) break block7;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" True"));
+                        break block8;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.RED) + bg.a(" False"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string);
+            String string4 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack J() {
+        ItemStack itemStack = new ItemStack(Material.GOLDEN_APPLE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "GET GOLDEN HEAD"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            String string = bg.a("\u00a77LMB FOR OPTIONS");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string2 + string)));
+            String string3 = bg.a("\u00a77RMB TO GET A GOLDEN HEAD");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a77\u258c\u00a7a\u258c " + string4 + string3)));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack K() {
+        ItemStack itemStack = new ItemStack(Material.CRAFTING_TABLE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "CUSTOM RECIPES"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            arrayList.add(bg.a("\u00a7a\u25ce \u00a77DROP TO REMOVE A RECIPE"));
+            arrayList.add(bg.a("\u00a7a\ud83e\udd6f \u00a77PUT AN ITEM THEN PRESS ON IT INSIDE THE GUI TO ADD A RECIPE"));
+            arrayList.add(String.valueOf(ChatColor.RED) + bg.a("NOTE: AFTER REMOVING A RECIPE YOU MUST RESTART THE SERVER"));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack L() {
+        ItemStack itemStack = new ItemStack(Material.MACE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "MACE COOLDOWN"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            int n2 = Main.getInstance().getConfig().getInt("rules.mace", 0);
+            String string = "HOW LONG MACE SHOULD BE STUNNED FOR AFTER USING IT";
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + " " + n2);
+            arrayList.add(" ");
+            String string2 = bg.a("\u00a77LMB TO INCREASE VALUE");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string2);
+            String string4 = bg.a("\u00a77RMB TO DECREASE VALUE");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack M() {
+        ItemStack itemStack = new ItemStack(Material.SHIELD);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "SHIELD COOLDOWN"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            int n2 = Main.getInstance().getConfig().getInt("rules.shield_cooldown", 5);
+            String string = "HOW LONG SHIELD SHOULD BE STUNNED FOR";
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + " " + n2);
+            arrayList.add(" ");
+            String string2 = bg.a("\u00a77LMB TO INCREASE VALUE");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string2);
+            String string4 = bg.a("\u00a77RMB TO DECREASE VALUE");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack N() {
+        ItemStack itemStack = new ItemStack(Material.ENDER_PEARL);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ENDER PEARL COOLDOWN"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            int n2 = Main.getInstance().getConfig().getInt("rules.ender_pearl", 1);
+            String string = "HOW LONG PEARL COOLDOWN SHOULD BE";
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + " " + n2);
+            arrayList.add(" ");
+            String string2 = bg.a("\u00a77LMB TO INCREASE VALUE");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string2);
+            String string4 = bg.a("\u00a77RMB TO DECREASE VALUE");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack O() {
+        ItemStack itemStack = new ItemStack(Material.WIND_CHARGE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "WINDCHARGE COOLDOWN"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            double d2 = Main.getInstance().getConfig().getDouble("rules.wind_charge", 0.5);
+            String string = "HOW LONG WINDCHARGE COOLDOWN SHOULD BE";
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + " " + d2);
+            arrayList.add(" ");
+            String string2 = bg.a("\u00a77LMB TO INCREASE VALUE");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string2);
+            String string4 = bg.a("\u00a77RMB TO DECREASE VALUE");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack P() {
+        ItemStack itemStack = new ItemStack(Material.TRIDENT);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "RIPTIDE COOLDOWN"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            int n2 = Main.getInstance().getConfig().getInt("rules.trident", 0);
+            String string = "HOW LONG RIPTIDE COOLDOWN SHOULD BE";
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + " " + n2);
+            arrayList.add(" ");
+            String string2 = bg.a("\u00a77LMB TO INCREASE VALUE");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string2);
+            String string4 = bg.a("\u00a77RMB TO DECREASE VALUE");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack Q() {
+        ItemStack itemStack = new ItemStack(Material.ENCHANTED_GOLDEN_APPLE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ENCHANTED GOLDEN APPLE COOLDOWN"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            int n2 = Main.getInstance().getConfig().getInt("rules.gap", 0);
+            String string = "HOW LONG E-GAP COOLDOWN SHOULD BE";
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + " " + n2);
+            arrayList.add(" ");
+            String string2 = bg.a("\u00a77LMB TO INCREASE VALUE");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string2);
+            String string4 = bg.a("\u00a77RMB TO DECREASE VALUE");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack R() {
+        ItemStack itemStack = new ItemStack(Material.WHEAT_SEEDS);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "SEED CRACKER"));
+                    arrayList = new ArrayList<Object>();
+                    boolean bl2 = a.getBoolean("rules.ban_seed_cracking", true);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            arrayList.add(" ");
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("\u00a7cNOTE: MUST RESTART SERVER FOR THIS CHANGE TO TAKE AFFECT"));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack S() {
+        ItemStack itemStack = new ItemStack(Material.POTION);
+        PotionMeta potionMeta = (PotionMeta)itemStack.getItemMeta();
+        if (potionMeta != null) {
+            ArrayList<Object> arrayList;
+            block8: {
+                String string;
+                block7: {
+                    boolean bl2;
+                    block6: {
+                        String string2;
+                        block5: {
+                            potionMeta.setColor(Color.WHITE);
+                            potionMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+                            potionMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "INVISIBILITY QOL"));
+                            arrayList = new ArrayList<Object>();
+                            boolean bl3 = a.getBoolean("rules.hide_killer", true);
+                            bl2 = a.getBoolean("rules.hide_killed", true);
+                            string2 = "HIDE NAME WHEN KILLING A PLAYER";
+                            string = "HIDE NAME WHEN DYING";
+                            try {
+                                if (!bl3) break block5;
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                                break block6;
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                throw s.a(numberFormatException);
+                            }
+                        }
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+                    }
+                    try {
+                        if (!bl2) break block7;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                        break block8;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string) + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string3 + string);
+            String string4 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string5 + string4);
+            potionMeta.setLore(arrayList);
+            potionMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta((ItemMeta)potionMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack T() {
+        ItemStack itemStack = new ItemStack(Material.LIGHT);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ONE CRAFT ITEMS"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            String string = bg.a("\u00a77LMB TO ADD ITEMS THAT CAN ONLY BE CRAFTED ONCE");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string2 + string)));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack U() {
+        ItemStack itemStack = new ItemStack(Material.ENCHANTED_BOOK);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ENCHANT BAN"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            String string = bg.a("\u00a77LMB TO BAN/UNBAN ENCHANTS");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string2 + string)));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack V() {
+        ItemStack itemStack = new ItemStack(Material.POTION);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "POTION BAN"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            String string = bg.a("\u00a77LMB TO BAN/UNBAN POTION EFFECTS");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string2 + string)));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack W() {
+        ItemStack itemStack = new ItemStack(Material.GLOWSTONE_DUST);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        try {
+            if (itemMeta != null) {
+                itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+                itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "TOGGLE ALL TIER 2 POTIONS"));
+                itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+                itemStack.setItemMeta(itemMeta);
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack X() {
+        ItemStack itemStack = new ItemStack(Material.REDSTONE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        try {
+            if (itemMeta != null) {
+                itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+                itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "TOGGLE ALL TIER 1 POTIONS"));
+                itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+                itemStack.setItemMeta(itemMeta);
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack Y() {
+        ItemStack itemStack = new ItemStack(Material.TIPPED_ARROW);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "BAN TIPPED ARROW"));
+                    arrayList = new ArrayList<Object>();
+                    boolean bl2 = a.getBoolean("rules.ban_all_tipped_arrows", false);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("BAN ALL TIPPED ARROWS") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("BAN ALL TIPPED ARROWS") + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+            }
+            arrayList.add("");
+            String string = bg.a("\u00a77LMB TO BAN/UNBAN CERTAIN TIPPED ARROWS");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            String string3 = bg.a("\u00a77RMB TO BAN/UNBAN ALL TIPPED ARROWS");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string4 + string3);
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack Z() {
+        ItemStack itemStack = new ItemStack(Material.MACE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<String> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "BAN BREACH SWAPPING"));
+                    arrayList = new ArrayList<String>();
+                    boolean bl2 = a.getBoolean("rules.ban_breach_swapping", false);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(bg.a("\u00a7aEnabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(bg.a("\u00a7cDisabled"));
+            }
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack aa() {
+        ItemStack itemStack = new ItemStack(Material.TRIPWIRE_HOOK);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "STRING DUPERS"));
+                    arrayList = new ArrayList<Object>();
+                    boolean bl2 = a.getBoolean("rules.string_dupers", false);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("REVIVE STRING DUPERS") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("REVIVE STRING DUPERS") + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+            }
+            arrayList.add("");
+            arrayList.add(String.valueOf(ChatColor.RED) + bg.a("NOTE: MAKE SURE TO RESTART THE SERVER FOR THIS TO WORK"));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ab() {
+        ItemStack itemStack = new ItemStack(Material.CHEST);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ITEM LIMIT"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("REMOVE ITEM LIMITS"));
+            arrayList.add("");
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("\u00a77/itemlimit to add a limit"));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ac() {
+        ItemStack itemStack = new ItemStack(Material.BARRIER);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "BAN ITEM"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            String string = bg.a("\u00a77LMB TO REMOVE A BANNED ITEM");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            arrayList.add("");
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("\u00a77/banitem to ban an item"));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ad() {
+        ItemStack itemStack = new ItemStack(Material.FILLED_MAP);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "START"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTIONS");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("\u00a77/start to start your SMP"));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ae() {
+        ItemStack itemStack = new ItemStack(Material.BUNDLE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "FIRST JOIN KIT"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("\u00a77/sckit <save/load/join/clear/resetplayers/view> <kitname>"))));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack a(Player player) {
+        ItemStack itemStack = new ItemStack(Material.POTION);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "VANISH"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            String string = bg.a("\u00a77LMB TO VANISH OR UNVANISH");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string2 + string)));
+            String string3 = "\u00a7cNot vanished";
+            if (bb.a.getOrDefault(player.getUniqueId(), false).booleanValue()) {
+                string3 = "\u00a7aVanished";
+            }
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("\u00a77You are currently: " + string3))));
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("\u00a77/vanish"))));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack af() {
+        ItemStack itemStack = new ItemStack(Material.CHEST);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "INVENTORY SEE"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("\u00a77/invsee <type> <player>"))));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ag() {
+        ItemStack itemStack = new ItemStack(Material.WARDEN_SPAWN_EGG);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<CallSite> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "WARDEN HEART"));
+                    arrayList = new ArrayList<CallSite>();
+                    boolean bl2 = a.getBoolean("rules.warden", false);
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("WARDEN DROP HEART") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"))));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("WARDEN DROP HEART") + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"))));
+            }
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("RIGHT CLICK TO GET THE WARDEN HEART"))));
+            itemMeta.setLore(arrayList);
+            itemMeta.addItemFlags(new ItemFlag[]{ItemFlag.HIDE_ADDITIONAL_TOOLTIP});
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ah() {
+        ItemStack itemStack = new ItemStack(Material.ECHO_SHARD);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        try {
+            if (itemMeta != null) {
+                itemMeta.setDisplayName("\u00a71Warden Heart");
+                itemMeta.setCustomModelData(Integer.valueOf(9999));
+                itemMeta.setEnchantmentGlintOverride(Boolean.valueOf(true));
+                itemStack.setItemMeta(itemMeta);
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ai() {
+        ItemStack itemStack = new ItemStack(Material.MACE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "MACE DAMAGE LIMITER"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            String string = String.valueOf(ChatColor.GREEN) + a.getInt("rules.mace_damage_limiter", 0);
+            String string2 = "MAX DAMAGE";
+            if (ChatColor.stripColor((String)string).equalsIgnoreCase("0")) {
+                string = String.valueOf(ChatColor.RED) + "no limit";
+            }
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ": " + bg.a(string + String.valueOf(ChatColor.GRAY) + "/Infinite"));
+            arrayList.add(" ");
+            String string3 = bg.a("\u00a77LMB TO ADD 1 DMG");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77RMB TO REMOVE 1 DMG");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string6 + string5);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack aj() {
+        ItemStack itemStack = new ItemStack(Material.valueOf("GOLDEN_SPEAR"));
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "SPEAR DAMAGE LIMITER"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            String string = String.valueOf(ChatColor.GREEN) + a.getInt("rules.spear_damage_limiter", 0);
+            String string2 = "MAX DAMAGE";
+            if (ChatColor.stripColor((String)string).equalsIgnoreCase("0")) {
+                string = String.valueOf(ChatColor.RED) + "no limit";
+            }
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ": " + bg.a(string + String.valueOf(ChatColor.GRAY) + "/Infinite"));
+            arrayList.add(" ");
+            String string3 = bg.a("\u00a77LMB TO ADD 1 DMG");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77RMB TO REMOVE 1 DMG");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string6 + string5);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ak() {
+        ItemStack itemStack = new ItemStack(Material.TNT_MINECART);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "MINECART DAMAGE LIMITER"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            String string = String.valueOf(ChatColor.GREEN) + a.getInt("rules.cart_damage_limiter", 0);
+            String string2 = "MAX DAMAGE";
+            if (ChatColor.stripColor((String)string).equalsIgnoreCase("0")) {
+                string = String.valueOf(ChatColor.RED) + "no limit";
+            }
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ": " + bg.a(string + String.valueOf(ChatColor.GRAY) + "/Infinite"));
+            arrayList.add(" ");
+            String string3 = bg.a("\u00a77LMB TO ADD 1 DMG");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77RMB TO REMOVE 1 DMG");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string6 + string5);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack al() {
+        ItemStack itemStack = new ItemStack(Material.TNT);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "TNT DAMAGE LIMITER"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            String string = String.valueOf(ChatColor.GREEN) + a.getInt("rules.tnt_damage_limiter", 0);
+            String string2 = "MAX DAMAGE";
+            if (ChatColor.stripColor((String)string).equalsIgnoreCase("0")) {
+                string = String.valueOf(ChatColor.RED) + "no limit";
+            }
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ": " + bg.a(string + String.valueOf(ChatColor.GRAY) + "/Infinite"));
+            arrayList.add(" ");
+            String string3 = bg.a("\u00a77LMB TO ADD 1 DMG");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77RMB TO REMOVE 1 DMG");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string6 + string5);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack am() {
+        ItemStack itemStack = new ItemStack(Material.END_CRYSTAL);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "CRYSTAL DAMAGE LIMITER"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            String string = String.valueOf(ChatColor.GREEN) + a.getInt("rules.crystal_damage_limiter", 0);
+            String string2 = "MAX DAMAGE";
+            if (ChatColor.stripColor((String)string).equalsIgnoreCase("0")) {
+                string = String.valueOf(ChatColor.RED) + "no limit";
+            }
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ": " + bg.a(string + String.valueOf(ChatColor.GRAY) + "/Infinite"));
+            arrayList.add(" ");
+            String string3 = bg.a("\u00a77LMB TO ADD 1 DMG");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77RMB TO REMOVE 1 DMG");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string6 + string5);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack an() {
+        ItemStack itemStack = new ItemStack(Material.ARROW);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ARROW DAMAGE LIMITER"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            String string = String.valueOf(ChatColor.GREEN) + a.getInt("rules.arrow_damage_limiter", 0);
+            String string2 = "MAX DAMAGE";
+            if (ChatColor.stripColor((String)string).equalsIgnoreCase("0")) {
+                string = String.valueOf(ChatColor.RED) + "no limit";
+            }
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ": " + bg.a(string + String.valueOf(ChatColor.GRAY) + "/Infinite"));
+            arrayList.add(" ");
+            String string3 = bg.a("\u00a77LMB TO ADD 1 DMG");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77RMB TO REMOVE 1 DMG");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string6 + string5);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ao() {
+        ItemStack itemStack = new ItemStack(Material.POINTED_DRIPSTONE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "FALL DAMAGE LIMITER"));
+            ArrayList<Object> arrayList = new ArrayList<Object>();
+            String string = String.valueOf(ChatColor.GREEN) + a.getInt("rules.fall_damage_limiter", 0);
+            String string2 = "MAX DAMAGE";
+            if (ChatColor.stripColor((String)string).equalsIgnoreCase("0")) {
+                string = String.valueOf(ChatColor.RED) + "no limit";
+            }
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a(string2) + ": " + bg.a(string + String.valueOf(ChatColor.GRAY) + "/Infinite"));
+            arrayList.add(" ");
+            String string3 = bg.a("\u00a77LMB TO ADD 1 DMG");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77RMB TO REMOVE 1 DMG");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string6 + string5);
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ap() {
+        ItemStack itemStack = new ItemStack(Material.ENDER_CHEST);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<CallSite> arrayList;
+            block8: {
+                block7: {
+                    block6: {
+                        block5: {
+                            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "STOP CUSTOM ITEMS FROM BEING STORED"));
+                            arrayList = new ArrayList<CallSite>();
+                            String string = bg.a("\u00a77LMB to stop custom items from being stored in GUIs");
+                            String string2 = String.valueOf(ChatColor.GRAY);
+                            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string2 + string)));
+                            String string3 = bg.a("\u00a77RMB to stop custom items from being dropped");
+                            String string4 = String.valueOf(ChatColor.GRAY);
+                            arrayList.add((CallSite)((Object)("\u00a77\u258c\u00a7a\u258c " + string4 + string3)));
+                            boolean bl2 = Main.getInstance().getConfig().getBoolean("rules.stop_storring_custom_items", false);
+                            try {
+                                if (!bl2) break block5;
+                                arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"))));
+                                break block6;
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                throw s.a(numberFormatException);
+                            }
+                        }
+                        arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.RED) + bg.a(" Disabled"))));
+                    }
+                    boolean bl3 = Main.getInstance().getConfig().getBoolean("rules.allow_dropping_no_store_items", false);
+                    try {
+                        if (!bl3) break block7;
+                        arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"))));
+                        break block8;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.RED) + bg.a(" Disabled"))));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack aq() {
+        ItemStack itemStack = new ItemStack(Material.LODESTONE);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "ALTARS"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            String string = bg.a("\u00a77LMB FOR ALTAR OPTIONS");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string2 + string)));
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("/smpcorealtar create <name>"))));
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("YOU CAN CHANGE THE ALTAR BLOCK IN CONFIG.YML (altarSettings:blocktype)"))));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack ar() {
+        ItemStack itemStack = new ItemStack(Material.GHAST_SPAWN_EGG);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "HAPPY GHAST SPEED"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            double d2 = Main.getInstance().getConfig().getDouble("rules.happyGhastSpeed", 0.05);
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("\u00a7aCurrent Speed: " + d2))));
+            String string = bg.a("\u00a77LMB TO INCREASE BY 0.01");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string2 + string)));
+            String string3 = bg.a("\u00a77RMB TO DECREASE BY 0.01");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a77\u258c\u00a7a\u258c " + string4 + string3)));
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("SHIFT TO INCREMENT BY 0.1"))));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack as() {
+        ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "KILL SOUND"));
+            ArrayList<CallSite> arrayList = new ArrayList<CallSite>();
+            String string = Main.getInstance().getConfig().getString("rules.death_sound", "minecraft:entity.player.death");
+            double d2 = Main.getInstance().getConfig().getDouble("rules.death_sound_pitch", 1.0);
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("\u00a77Current Sound:\u00a7a " + string))));
+            arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GRAY) + bg.a("\u00a77Current pitch:\u00a7a " + d2))));
+            String string2 = bg.a("\u00a77LMB TO CHANGE THE DEATH SOUND");
+            String string3 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string3 + string2)));
+            String string4 = bg.a("\u00a77SHIFT + LMB TO ADD PITCH BY 0.1");
+            String string5 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a7a\u258c\u00a77\u258c " + string5 + string4)));
+            String string6 = bg.a("\u00a77SHIFT + RMB TO SUBTRACT PITCH BY 0.1");
+            String string7 = String.valueOf(ChatColor.GRAY);
+            arrayList.add((CallSite)((Object)("\u00a77\u258c\u00a7a\u258c " + string7 + string6)));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack at() {
+        ItemStack itemStack = new ItemStack(Material.VILLAGER_SPAWN_EGG);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<Object> arrayList;
+            block12: {
+                block11: {
+                    boolean bl2;
+                    block10: {
+                        block9: {
+                            boolean bl3;
+                            block8: {
+                                block7: {
+                                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "CLICK VILLAGER"));
+                                    arrayList = new ArrayList<Object>();
+                                    boolean bl4 = a.getBoolean("rules.clickVillager", false);
+                                    bl3 = a.getBoolean("rules.clickVillager_anchor", false);
+                                    bl2 = a.getBoolean("rules.clickVillager_owner", false);
+                                    try {
+                                        if (!bl4) break block7;
+                                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("CLICK VILLAGER") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" Enabled"));
+                                        break block8;
+                                    }
+                                    catch (NumberFormatException numberFormatException) {
+                                        throw s.a(numberFormatException);
+                                    }
+                                }
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("CLICK VILLAGER") + ":" + String.valueOf(ChatColor.RED) + bg.a(" Disabled"));
+                            }
+                            try {
+                                if (!bl3) break block9;
+                                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("ANCHOR SYSTEM") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" True"));
+                                break block10;
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                throw s.a(numberFormatException);
+                            }
+                        }
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("ANCHOR SYSTEM") + ":" + String.valueOf(ChatColor.RED) + bg.a(" False"));
+                    }
+                    try {
+                        if (!bl2) break block11;
+                        arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("OWNING SYSTEM") + ":" + String.valueOf(ChatColor.GREEN) + bg.a(" True"));
+                        break block12;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("OWNING SYSTEM") + ":" + String.valueOf(ChatColor.RED) + bg.a(" False"));
+            }
+            arrayList.add(" ");
+            String string = bg.a("\u00a77LMB FOR OPTION 1");
+            String string2 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u258c\u00a77\u258c " + string2 + string);
+            String string3 = bg.a("\u00a77RMB FOR OPTION 2");
+            String string4 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a77\u258c\u00a7a\u258c " + string4 + string3);
+            String string5 = bg.a("\u00a77DROP FOR OPTION 3");
+            String string6 = String.valueOf(ChatColor.GRAY);
+            arrayList.add("\u00a7a\u25ce " + string6 + string5);
+            arrayList.add("");
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("FOR CLICK VILLAGER DO SHIFT + RIGHT CLICK"));
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("FOR ANCHORING VILLAGERS DO SHIFT + RIGHT CLICK WHILE HOLDING SHEARS"));
+            arrayList.add(String.valueOf(ChatColor.GRAY) + bg.a("TO OWN A VILLAGER DO SHIFT + RIGHT CLICK WHILE HOLDING A SHOVEL"));
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static ItemStack au() {
+        ItemStack itemStack = new ItemStack(Material.VAULT);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta != null) {
+            ArrayList<CallSite> arrayList;
+            block4: {
+                block3: {
+                    itemMeta.setDisplayName(bg.a(String.valueOf(ChatColor.GOLD) + "DISABLE VAULTS"));
+                    boolean bl2 = Main.getInstance().getConfig().getBoolean(b, false);
+                    arrayList = new ArrayList<CallSite>();
+                    try {
+                        if (!bl2) break block3;
+                        arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.GREEN) + bg.a(" True"))));
+                        break block4;
+                    }
+                    catch (NumberFormatException numberFormatException) {
+                        throw s.a(numberFormatException);
+                    }
+                }
+                arrayList.add((CallSite)((Object)(String.valueOf(ChatColor.RED) + bg.a(" False"))));
+            }
+            itemMeta.setLore(arrayList);
+            itemStack.setItemMeta(itemMeta);
+        }
+        return itemStack;
+    }
+
+    public static String a(Boolean bl2) {
+        try {
+            if (bl2.booleanValue()) {
+                return bg.a(" \u00a7aenabled");
+            }
+        }
+        catch (NumberFormatException numberFormatException) {
+            throw s.a(numberFormatException);
+        }
+        return bg.a(" \u00a7cdisabled");
+    }
+
+    /*
+     * Unable to fully structure code
+     */
+    static {
+        block20: {
+            block19: {
+                var5 = new String[308];
+                var3_1 = 0;
+                var2_2 = "\u00afK\u0015;\u0085\u00d4\u00b4xNE\u00d8a]\u00d5F\u0004n\u0019FMTB\u00ff\u00d7\u0018\u00c3m\u009a\u008by\u008aR\u00ae\u00f3\u009bx\u001e\u0096\u00fb\u000f`\u00871\u0095\u00b6\u008b\u0018g9KCu\u00a4\u00c7\u00e9\u0095\u009ec\u00fdRF\u00b9m[[a\u00e19\u00e5P\u0013-\u009b\u00da\u00b2\u0089g\u0082\u0018\u0006\u009b\u00e0\u00bc\u00b6\u00f4\u008b\u000e<<5\u00b7\u00baA>\u00f1\u0083\u0000 x\u00e5*\u00a6\u00c4\u00c2\u00e8&h\u00dd}\u00df\u00da\u008a$\u00d5Am%9\u00ba\u009fO\u00eb\u0090(\u0013\b\u00c4\u00bevo\u00ef\u00c2,;\n%\u00cd\u00aah\u00fat\u00ca\u00dc\u00cd\u0005*WtG\u008a\u00d7\u0089\u0090\u0000\u00ff]\"\u00b8p%\u00dc\u00db\b\"<\u0019\u001a\u00e4Q\u00f4\u00b3p\u00edV6\u00a3 \u0086\u008a\u001e\u0095\b\u0005f\u0094.\u00ab\u009e-}\u0097\u001c\u00f6a\u0006F\u00f1%}le\u001b\u001a\u0004%N\u0093\u0003\u00f9\u00d6\u00ec\u00bd\u000e\u00b8\u00c3\u00eb\u0017Q\u0010\u00c98#Z7\u0096\u00f2\u00e3)\u0092\u00be\n_mC\u0019#\u00fc\u00d7\u009b\u0018\u00ab[d\u0080\u00b8\u00c2\u00c2\by\u00e4\u00abg{5\u001e\u000b.\u00c6P\u0094\u001bk\u00acx`\u0014\u0001\u00eb\u00bd\u0017\u00a0C,\u00fc\u00fc\u00ba\u00fe\u008f\u001a\u00f4wPawD\u00b8\u0018\u00f5\u0004\u00af\u00f0\u00e0\u00aa\u000e\u0014(-\u00fd\u00ee\u0001E\u001fIua:HR\t\u0098\u009d\u009c\u00e5\u00d8\u0098\u00d5{\u00cc\u000e\u008a\u0096|kLT\u00d2\u0015\u00d6u\u008b3\u00c6\u00e4\f*c\u008b]\u00048\u00e2\u00170r\u00f0\u0086-\u00cbH\u00c3>\u0097\u00d2\u0005#Z\u00e6\u00b6\u00cb\u00e6\u001ck\u00c9\u00a9\"\u00c5\u00ad\u00d6\u00b0\u009be\u00be\u0092k'\u009aj\u00c0+\u00af\u00180\u00d1\u00ffE;q\u00e4\u0087\u009e\u00caF\u0015\u00b9\u00e4\u00b8\u00caQm_\u00d7}u\u00ba\u00e8Cc6\u0095\u00fb\u000b\u00b8[\u008f\u0005\u00a7\f:\u00fa\u0005\rP\u001bL\u00b9!\u0085T _<\u00e8\u00d7\u00ef\u001e\u00bc\u0091u\u0014\u0084y\u00f8\u00d2\u0012h:\u008bR\u0010\u00e11+\u0087TI\u0092\u0089EI\u00bb\u00b4\u0010\u00a0\u00f0\u00d2\u0012\u00b6\u00064\u00e6\u00ac'\u00f9\r\u00b5\u0016\u00b5\u0019\u0083\u00e2\u008fG\u00e4X\u0017G\u008c|\u00c7\u00f7\u00cd9\u00e6\u00ee\u00cf(\u00c2<\u0096Yv\u00bc\u0092\u00868G5*\u0019\u00aa\u0083\u009b[`7<K\u0091LC\u0085?~}\u00bd]B\u00d1\u001eCs\u000f\u00fd\u00ee\u0012=\u00fe(\u00cb*?d\u00c3\u00014\u0006M\u00a4P\u00d7.\\z\u0011\u0094\u00d3p\\$p\u00e9\u00fa\u0083P\u00cd\u0017\u00b3-d~\u0081\u0011d\u0017!\u00e6\u001b\u0004;\u0091\u008c\u0006^\f%\u0086O\u00c9\u00ae\u001co0\u000f \u00cb\u00ff\u0013\u001c#~\u00de\u000bQg\u00d5\u000e\u008du\u00ae\u009a\u0015\u008cH\u00af\u00bc\u00f9\u00aa\u00a3\u000ek\u001e\u00fd\u00f5u\u00d4\u00af\u00ac!\u00ba\u0005\u008d-\u008b\u0018\u00f9Y\u008c/s=$\u00b6M\u0086P\u00e7\u00a9\u0086\u0016Y\\\u00aa\u009a,\u00c6\u00d7Ld\u00116s\u00d3\u00da\u00c9\u00f9])\f;\u00be\u00b5\u00a7\u00d2\u008aAJ\u0018\u0010k\u00c0\u0087\u00e0\u00e0m\u00b4\u00ba\u00ef\u00e3\u00c1\u0085\u0001\u00af\u0096o\u00e9y\u00ae\u0082\u00c2\u00fa\u00c1\nc\u00ceb\b\u00e3x\u00e9]\u00a95\u0014\u0087\u00da\u0012}hTwk\u00a1\u00c0\u0017\u00b2\u00a1\u0099.\u00ea\u0091K\u0015\u0099\u0011\u00ff%\u00a2\u0011\u00b1\u00bc\u00ef.\u00bc\u00f4G\u00a0\u00e6a\u00a6\u00a4[\u0014\u00a6*\u00e3\u00fcj9\u0093/o\u00a6\u00f8\u0010\u00847dG\u00e3\u008c\u001e \u0016\u00b6\u00c84?\u00ac\u001c\u00f1s\u00aa\u00f4\u009d\u009co\u00ef\u0003N\u0002\u008d\u008c\u00ad\u00adb\u0019^2)`\u000f\u00f7\u008a\u000e&a\u009dR\u00e4\u0003Lrk\u00c0\u0016x?H\u00c7\u00abC\u0019\u008b\u00d0\u00b3\u0085\u00fa\u0002\u00c1Q\u00f1w\u00ccuP\u00d4%\u0005\u00bc\u0081\u0088\u00b0xFzp\u00d0\t\u00e8R\u0092\u001c\u0014\u00a7\u00e0\u009cj\r\u00d2;\u00c20\u0084\t\u0002\u0010\n\u00da\u00ff\u009fp\u0011s'\u008c\u00c2\u00bb\u00a3\t\u008c\u00e1\u0003XS\u00cb\u0010\u0014\u001fi\u0011\u0099\u00f6\u0091~\u00d3z7gl\u00dd\u00bcW\u00d7\u00e5-x\u00df\u0011\u00f0=\u00ca\u00dbD9\u00d5\u00cf\u00e6\u00c9\u00c2}9\u00d1{qN\u0017uM\u001d\u00adAmb\u00bc\u0085\u00c7I\u00cf\u008a\u0083r\u00f9\u00d0\u00be\u0019\u00ae\u00e7\u0093K\r\u0082|\u00a6^\u00a5\u00b6s\t\u00c2\u0080d\u00e4\u00b5\u0015h\u0083\u00efV\u00d71\u0091\u00d6Ez\u00f1&hF\u00fd$N\u00fc\u00d8\u00c3,\u0015\u00fb5\u0089wO\u009a\u00d8\u00cc\u00bdF\u00a1@7\u0002Q\u00fa\u00ee\u00fc2\u00cc\u00a7.?\u00f5J\u00bav\u008f\u00a4\u00c0y\\\u00fc\u00aef&X2\u001d\u009b\u00b0Kj0\u00f9V\u00f7Su\u00c44\u00d5|\u00c6\u00a1f\u00ce\u00fa\u0012\u00e63\u00a3,\u00e7\u00b39\u00df\u00a5\t\u00b3y`\u00b1~\u00ee\u00f6p\u00c8\bd\u001d\u0081\u001e\u00f7\u00fe\u00a1 C\u00e1gR\u00f2\u00ab(K\u00b0:\u00b70\u0018=\u00b0$L\u00e6=\u00e09$\u00a0\r\u009eD\u0000x\u00e1\u0019{\u0096\u00c3\u00c4\u0091\u0088TKg\u00d9\u00afF|\u00da\u00dao\u00e8^t\u00b3\u0000L\u0097\u00f4\u00ef\u00e9\u00e4\u00a5'\u0084[\u008f\u008b\u0089w\u0006\u00e3b\u0017\u00e9\u00e7\u0090\u00f8-\u00c7\u00fd\u00e9T\tK\u00f1H\u00ae\u00ff\u00ab\u001a\u0099\t<\u00a4\u00d3V(\u00dd\u0000\u00ad\u0000M\u0081\u00cb \u0010\u008bUU\u0093\u00f1\u00ed\u00ad\u007f\b\u00c4\u00a3HcRA\u00c7\u00d9i_/Pj\u00aajMb\u00be7P\u00e1\u0001\u001aM\u00d3\u0004~\u00bf\u0017\u00bd\u00f3~/7\u00f9bk\u00ba7\u00a9K\u0012\u00c6\u001f.\u00a4R\u009fL&s\u00c8\u00ca\u0007\u0010\u0097\u009di#g\u0091\u00a7\n$\u00bf\u00d9V\u008d/\"_U\u00b8\u00f2ml*q\u00a2\u00cd\u008aW\u00fd\u001c\u0010\u001c\u00bbP5\u00fe\"esC{\u009f\u0016\t@\u00dc\u001f\u00ab\u0086\u00c2\u0097\u009a*f2\u00c1\u00cag\u00f0\u00e8\u008a!\u00fbf2\u001b\u00bb\u0092\u00a5,\u00fdau$+S\u00f6\u00f5\u00cba\u00f8\u00bf\b\u0094\u000fzQ\u00a3\u0017\u0019\u0001\u0090$\u00f0\\T\u009aC\u0003\u0091W\u0091\u0090\u0011\u009b\u00bc\u00f2\u0094'V\u00a2}#\u008b\u00b0\u00930X\u00fdcBztA\u00eb\u00c9\u00af\u00c4\u008e\u00d8^\u00b3\u00f4\u009e\u0001?n\u008e\u00b5\u00bf*j\u0011_zr\u00c4\u00e0B\u00d5\u00c4\ud865\udd22\u00cd}\u00be\u00d6df\u00cb\u00eb\u000f UC=c\u00d2\u00c0\"\u00f9|@\u00c0\u00c6\u001b\u0087\u00a7\u00de0)8\u00f7c\u00c4\u00cc@2~'\u00ferQ\u0090)\u00cb\u0093\u001c\u00eek[\u009e-(\u00d1R\u00e1u\u00a0-i\u00ea\u00f3\u0011\u00e9\u0005\u0089Q\u00d3\fP `G\u00cewU\\4\u009aO\n\u001aY\u00b0\u00b5U/>\u0011\u00e4_6\u00f0\u008b\u000e\u008c\u009b*\u00fdZX\u00c5\u0013\u0017U\u001el[\u001d\u00da\t\u00bd\u00d5\u009a\u00daIy\u0015;\u0011\u00bdV\u00b0*\u008c\u00e2t\u0011\u00d2\u00d6OnZo/\u00fbBaw\u00fe\u009e\u00bb\u00adl\u00ae\u001d\u0096e\u00ce\u0015\u00a1\u0005N\u0080\u00c72\u00ff\u00ed^c?f\u0081r\u000fMm\u00fb\u00be*\u0017sw\u00c7\u00b1\n\u0002i\u00fcZ\u00b6yD\u0090\u00da\u00e4K\u0017s.\u0007\u00b8\u008d\u00b4`\u00b82\u00ee\u00b5x\u00da\u00f9Q\u00b5?o\u0090B5\u00b1\u00d9\u00f7\u00e9\u00cf\u008e\r\u00879\u00d0\u00e8\u00b0~K_$\u00166\u00f2\u00da\u00e92\u00e4\u0002\u00a2\u0010,\u00e3\u00a0f\u0095\u00da\u00c2%-\u00bd\u00d5\u00d3\u00cf\u000b\u0086\u00e5\u0015k\u00af\u00f9\u00eb\u0087e\u00e8\u00d5H\u00bb\t\u00d6\u00b2\u00e5w%\f\u00b3\u009e\u0005\u0007\u00c6\\\u00e9\u0012\u00f9\u00bd\u00d1\r\u009ef\u00e0q\u000e\u008c\u001b\u009dz\u0087\u0012-\u001a\u0014\u00ae\u009c\u0006\u00ef\u00b2,(\u0006\u00b0:\u00bfd\\\u008ab\u00b3\u00a6\u00ca\u00f1r\u0010\u00b3\u00b6\u0003#ES\u00b7v\u00a0\u00fc \u00bbQW=\u000b\u000f\u00bc\u00ff\u00c6\u00c0\u00cer\u00a7j\u00feQ\u00d0\u00e2#\u00db\u00a0\u000e-\u00e4u\u0082=G\u00c7\u00ff\u001fa\u00ff\u0016\u00cf+\u0002G>!\u0094w6\u00f0\u008fin\u00b6]\u008e:\u00c3\u0092\u0093a\\\u00f5w\u00ec\u0010\u0003\u00e3\u00bfS\u00bb\u00be\u001d\u00d73v1\u00d8\u00ff\u0013~\u00b2jMv\u00fd\\\u00d9\u00d7U\u00e4E\u00f4N\u00f7ob\u00f3@!\u00c6D|\u0096\u00c6\u00a5G/x\u00a8\u00f6\u00b6}\u00e7\u00edMdU\u00deTEkwB\u00a2\u009c>\u0093W\u00fe\u00bd\u00c9n\u0019j\u001d\u0083\u0083l^Ilf\u00d6\u00a12\u00ea\u00d8\u0014l\u00d9\u00d0\u00d7\u00d1\u00f1\u00d8!\u008dK\n\u008c\u00a1\u00bd\u0012C~\u00ed\u009b\u0016f\f\u0087\u00ca\u007f\u000f\u00a9\u00d0L\u00ca\u0097!K(\u0015F]*\u008doJ\u0086\u00b9\u00a7\u0097\u00ac\u008c\u00ff\u00ca\u00a7\u0012\u00d0\u00c83\u00c7|\u000b\u00b95\u00d5\u0080\u0090\u00eb\u007f\u009e_-\u0082\u0017\u00d1\u009c\u0097\u0097\u00cd*\u00f3T\u00b7\u00d7\u0004aIV\nC\u00df\u00e9\u00f8D\u00db\u00ce\u00cc\u000e\u00fa\u00e6\u0091_5\u00be\u00e9\u00c6n\u0080\u00b7\"q\u00b8\f\u0081\u00f7\u00c6/\u00b3\u0095\u00f9\u00a9\u00a8\u00e2*\u00c8\u0017-\"Gb\u00c2\u00b75\u0002\u0018O\u00be\u00f4\u00ddQ\u00a9\u00f18Z'\u008a\u00fa\f\u00fa\u001do\u00ac!\u00fcM\u00e8\u009a\u0093\u00bb\u008b\u008e\u00a2v\u001dzY\u00a8\u00c2\u001a\u00efN\u001b\u009f\u00fb\u00d6\u00a2\u00ccl\u00eb\u0014=\u0086[\u00ec\u0019\u00a4\u008bP6\u00d3\u00c9\u0094\u0002!\u00d1b\u0014n2o\u0015\u00cf\u0099\u000f\u00e2\u0095-\u00c8\u00f3\u00a2G\u00eb\u00f7\u0098\u0087\u00b9\u00eb\u0001g\u00b4\r<\u0014\u0002x[UM{\u00f5t\u0092\u0083\u00ef\u00f0ga\u00f2\u00f1\u000e,\u00e2q\f\u00e4lj\\6\u00e1_\u0017\u00fby.\u00b0\u0012\u0001\u0019\u008d'\u008e<\u009b\u0096\u00ba\u0087\u00afe\u0005E\u00de\u00cc\u0000\u008a\u0015\u00fe\u00d4)K[\u001dZ<\u00edX\u00ab\u0083vzy\u00f5\u00eb\u001d\u0092\u00f0\u00b3\u0019\u0015\u00f9@\u0019\"\u00d8.\u00eb\u008f\u00f6\n\u00f8\u0088\u008eGArdSM\u00f2\u00fe\u00ddL\u00ab\u0014\u0015el/\u008a\u00b0\u0019\t\u0095\u00bb\u0089\u00e3\u00a2\u00c9C\u0086\u00f3\u00f8\u00e3\u008f\u001e\u00b0\u00d6\u00d0B\u008a\u00f9\u00fb\u00d9\u008b\u0016\u0011\u00d8\u0000'Rg\u001f\u00a9\u00c2\u0006\u001c\u00d8e-\u009c\u0085\u009d\u0094\u0014w\u0010\u00f4\u0089\u00e0\u0085\u00c2a\u00d0 8\u00fa|z*9\u00ae>\u001afu.\u0088\u00ef\u00ea\u0087\u00bc\u00bf:\u00d4\u00ed\u00de|$\u0094\u0091\"^\u00fd\u0002IZ/\u00f2\u00d5\t\u00cd\u00c8F>U\u00a4\u009f\u00a5A\u001dl\u00c7\u25a2\r\\\u00ae\u0088,\u00a5\u007f\u00aaY\"\u00c1\u00can\u00be\u00f7\u00dd\u0001\u0013\u00f6QW\u00d3\t\u00c2N\u0007\u0016qL\u00fd\u00f5\u00cdo\u00c7nM7\u0000\u00c5\u00ab\u00be\u008a!y\u0006\u00df\u00f8zO\u0003\u00fe\u00fbg9\u00cd\u00f3\u00d8\u0005Gq\u00c06\u0012\u00bfV\u0082\u009c%\u00bc1\u0097Q\u0098\u0011\u00a0\u00b6'_\u001d\b\u001bn<\u0080\u0081\u00e3\u00af\u00e6S\u00d7\u00ea\u00e3\u00dcH\u00e6V\u001f\u0085\u00dd\u0015;4\u001fg\u00b5\u00e0O\u00cfN\u00b0}\u0014\u0084\u0085'\r\u00b0\u001egs\u00f7\u0018\u00dc\u00d7\u007f\u00e1X\u00c8\u00c4\u0004\u001c\u00bb\u001f\u0004\u00b9\u009c`A\u001f\u0001[\u008d\u0014\u00a2Q\u00ab\u00dc\u008f.\u008e\u009b\u001dV\u00a1\u00af\u00e6\u00e9/\u00e1\u0013\u00ca\u0092\u00f5\b\u0015j+\u00afC\u00df\u0093\u009a\u0082q\u00df\u00b1z\u0014\u0095\u00ee\u00bc!\u0085\u00c0\u00b7\u00a1\u00120b\u00b5HT\u00d1\u00d2+\u00b1Q\u00f9\u00e6\u00d1\u00db\u00d1b\u000ea\u000e\u00adr\u007f}! \u00b6\u00c8\u0080\u00f0,\u00dd\u00bc\u00a6\u0010\u00ca{\u00af\u00be\u009e\u00a6I\u009e\u0001\u007fu\u00da\u00c4t\u00b5\u00f6\u0006\u00bb\u00daD\u00eb\u0093M7!z>\u0001\u0012\u0097G\u0084){#3\u00e3\u009foy\u00cc#\u0002\u00a8\u00f1\u0007\u0092\u00ed\u00d5\u0099\u008e\u00f0\u0007\u00d0\u00ee\u00b4\u00ce\u00a3\u00d6\u00a0P(\u0007[S\u00ac\u00f4\u00bd\u00b4\u0007\n\u0018\b\u0092\u000f\u0086\u00ecBp\nj(\u00ba\u00ab\u00cc\u00c1Lc\u00f5[4\u00c76U\u00c2\u0095\u0080\u00d8!\u00f6g\u0016&Tr\u00ed(s2\u00a4\u00cd\"j#\u00dek\u00d9\u0091T\u001ex 5\u001e\u00fb\u0090\u00a2\u0006e\u00a0Dz\u0014\u00d2\u00ed\u0001\u00a4\u00d2\u00ec\u00aa\u0096\u0084\u00ec!/KN\u0003\u001d\u00e7\u00a4.\u009b\u00cd\u0080\u00f2\u008d\u0099(\u0098\u00d6\u00a1\u00ceB\u00fd\u0095\u00b2k\u00d96\u00e9v\u0011\u00de7\u00b4*%\u0014\u00ce&\u00c7\u008d\u008f.jU\u0003^\u00a8\u00d3-\u00a9w\u0018\u001a\u00cdKG\u00a8:)\u00be\u00b7u\u0092\u00b8\u00f5\u0014\u00e4\u00f9M\u00a1\u00b8\u00df\u0005\u00df\u0094\u001f\u00a1\u0002\u0014\u00bf\u00949\u00a5\u00ed?N/\u0017\u0018+\u00c1\u00c5\u00c2:\u00d2\u0081W\u00a2\u0007\u000e\u00b6\u00d8\u0087$\u00f1\u00f5\u00b9\u00e1\u00c4 v\u00d6\u008c\u00f3\u0013U\u009aHu#U\fU\u008f\u00d2\u00cc\u00c2C\u00c5G\u00acw\u00c0u\u0014\u00eb\u0096\u0081\u00eeB\u00e4\u00e0X[\u00d2d\u00b4\u00b7%g\u00e2\u00c2~\u00e8m\u0011\u00dd\u00d4Y\u00bc\u0001lLr\u0013:`i\\\u00e8\u00ee\u0091N\b\u00ee\u00ba\u00ec!h\u00b44X\u0016vq}*M\u009d\u00f1\u00a2\u00d5`w\u00dfD\f\u00ca\u0014\u009f\u00e8X\u00901\u009d\u000eQ\u00d0\u00fa\u0004\u00cc\u0097\u00f9\u00e5\u00d8\"\u0007~\u00d0&\u0010\u00b0\u00df\u00ecW6l\u00f7\u001bg\u00ba\u0010\u0005\u00fc>~\u0018\u001a\u00b7\u00e18\u0006\u0001\u00a0\u00bcW\u00bc\u00d6D\u00b8eS\u00aa\u00d5\u00de>\u00e0\u0090+\u0098\u00a9\u00ce\u00c4\b\u0004g\u00a6\u25c3!\u0010:i\u00d3{\u0002Z\u0087\u00149\u008f\u00de\u0002~\"(\u009e\u0013*_\u00e0\u00f0'Jv/\u0092\u008bL\u009e\u00e15U\u00006\u001e\u00ca0\u00ac\u00ac8\u00918\u00eaML`\u00dc\u00f4\u000enP\u00c7\u0018\u00d9%G\u00d5\u0090_0\u0010\u0003\u00df\u0019\u00a6\u0091\u0089jw\u0010\u00c2w\bw\u00c5\u001c^\u00a2\u0014\u00b4x\u00a7\u00fd\u00a9a\u0019\u00c8F\u00fb\u00eeU&\u00ce4M\u001ca\u0096\u00e5C\u00ea\u00f8\u00c7S\u00e5\u00ab$\"\u0007\u00d7\u00f0\u000f\u00c5uZ\u0088a\u00eaG\u00ad\u009f\u0015\u00ab\u00cf\u0014\u00d4\u00b7\u0017\u00cd\u00e5[\u009aA\u00a8C\u00e5\u001f\u001c\u00ab\u00ea\u0011\u00e4\u00ce \u00ad\u00f2Rd8\u009e\u0013\r\u00fb\u0012j\u00f6\u00fel\u00a0\u0093\u00c9\"+g\u0091\u0015 m\u00b7\u00a9\u0014\u00ed\u00c8\u00ac\u00d0\u00d3\u00e3\u0097\u00c2T\u00c1\u0001V\u00bc!\u00e2\u00bb\u00167\u00a3&\u00a7Z\u0090\u00cd!\u000f\u00f3\u00f8\u00ee\u00a0\u00e5\u00e1*\u00e3U\u00ed\u0006\u008c6\u0019\u00e2\u00be\u00ad\u00fc9k\u00a4\u00d1\u00e3G\u0085P\r#V\u00adpG\u0092:\u00c9\u001cq\u0017:\u00115\u00e7D\u00da\u00a2\u00a0?\u00e4\u0090<D\u00e2:e\u00f3\u00be|\u0015\u00e2H\u00be/\u00fd\u001e\u00c5:\u00fb\u00f5\u00cf\u00ab[\u00ea\u00ca\n\u0005?\u0096d*\td\u0007\u00e1\u00c1\u00f7\u00aa\u008f2\u00ea6P\u00fck\u00e41M\u0002\u00b6\u00d8H\u0081\u000f]\u009ek\u00dcfh\u008a\u00e5$\u008d\n{U\u00ea\u008e\u00c3\u00c7\u00d4+\u00bc\u00bc\u00e08;\u00fe\u0018\u0019\u00d0\u00e3\u0088JJl\u00c3u\t\u00d1\u00a5\u00fcm\u00e8\u00f8\b\u0002\u000e\u00efu\u00d0\u007f\u00d4\u0086\u000b\u00b2f\u00a3c\u00aa\u00ebdx\u009a\u00f6N\u0014\u0016\u001e \u00e5.G\u00ad\u001f\u00a4\u00a4z\u00eaB\u0001\u00d5\u008e\u00b5/\u009b\u00d3\u0019\u0012\u00d7\u00a0\u00dc>`\u00a8\u00fc\u00e4\f\u00ba\u00bc\u009e\u0006\u0085P*FX\t\u0093v\u00f1].\u0019\u008c\u00f9\u00baF\f>p\u0011Q\u00b5W\u009f\u009b|;u\u00ff2c1v\u00b3h\u00ea`\u001a\u008c\u00f8s9D\u00dc\u00e2f\r\u00fc\u0016~\u00b1+d\u00d2\u00b8\u00eaV\u00d7\u0083Zi2\u00d5\u00e9\u001f\u001c8.\u0003\u00fa\u00b8\u0015\u0006k\u0097\u0099  >\u00bc\u007f\u009c\u001b\u00b0\u001e\u00ab\u00d8\u00cf\u0010@D\u0006\u00f7\u00d6!\u00d3\u0010\u00b9\u0015\u00b3\u00f4\u0001\u00abO&\u0098_\u001aj\u00a1z%O\u00197\u007f\u0004\u00c9\u00aa\u00c2?\u00a5\u00b6\u0084aq_\u00ca\u00b9\u00ee\u0003m!'c]\u00b7\u00e5\u00bf\t$Y\u00a0\u008e\u00b5C\u00c7\u000f\u00e3\n\u00f4\u00fa)\u00eboE)\u00fejl\u000b(\u0093\u001d$\u00fa\u00bd\u00ecm\u00c1\u00bfC\u0006\u0082T\u009e\u00ee\u0093y\f\u00b9D\u00a0\u009a>\u00c9 \"\u00e0S\u001f\u00c1\u0019M\u00a8\u001a\u0011\u00a1\u00fa~N\u0006\u00999\u0004\u0084\u00fa\u00b3\u00d6\u00e8[\n\n\u007fy\u00d2\u009b\u0018\t\u009d\u00d5}\u0085\u00bcz\u00a7\u00e5\u00ef\b*\u008d\u00bd\u00a5\u00ce\u0089\u0086\u00ce\u0012\u00c7\u00f4K\u009a\u008b\u008b)`\u00ce8\u0016\u00cb,~n\u00d6\u00f9\u00f72Z\u00ae\u00ef\u00cb\u00b4\u000e\tZ\u00b1\u001b\u00cb|I\u0090\u00edIy\u00a5}\u0013^\u0096\u009dJ\u0095\u0081\u00c2\u00b4\u0093c\u00039RP\u0082\u00f6>\u000eb\u00b2\u00dc\u008f\u00ac\u00b1\u0091\u00d9\u00ad\u0080G\u001a\u0010%\u00c4\u00f5\u00a7\u00bb\u0080x\u00f6\u0014L\u00d7z\u008e'+n\tQb<\u00d2\u00f5\u0082\u0087\u00fd\u00e6\u0013P\u00e8\u001f\u00a9P\u0080{\u00ebpl\u00ba\u00ba\u00ea.\u00af\u00db\u00f7\u00c6\u00ca\u0007\u00ac\u00ef\u25f8\u0013\u00db\u25a1\u0002\t\u001a\u0019\u00ec\u00fb\u00f6\u0080G\u00bd\u00c6\u0007\u00fbW\u00aa\u009bz\u00f3c\u000f\u000e\u0017\u0088\u00b70\u0081\u00f1\u00a8\u0089%d\u00d3\u00f1n\u00ed\u0007R\u00ca\u2527\u00b7 \u2535}\u001cd\u00d0n<\u00e7|\u0098\u007f\u008fu0\u00bc\u00db\u00ff\u00ae\u00ba\u00f0\u0012\u000f\u009e\u00d4>\u0017\u00ea\u0000=\u00f8%\r\u001a\u00d4\u00a1\u00bc\u001el\u00bens'\u00d7\u00da[\u0007\u0093\u000f\u251f\u0093q\u25b1\u00cb!\u00ac['j,V\u00a5\u001evuT\u007f\u0011?\u0006\u00bb\u008c\bI0\u00d1\u00e0`\u00a0\u00b7:\u00e1P;\u0017\u0097pM\u0016\u0095\u008fP\u00d7 \u0001d\u00df\u0099\u0083o\u00e5&\u0089\u001b\u00bd\u0000`\u0005b-\u00df\u0010Y\u001c^v\u00ee\u00f9\u00c2#\u000eV\u00f5\u00ee\u00eb\u00fdj^ I\u0016\u00cb\u00e4Sg\u0010\tG\u0019\u00ad\u0096i\u00b4\u00dfQ\u001c\u00e0\u0018\u00fc\u00ff$\u00b4\u0099|\u001cN>s\u00d1K\u0018:R\u00a1\u008c\u00ac\u0001$\u008ab\u00a5a\u00d46\u00b8\u00fa\u0003\u00e8\u00a6\u00f3\u0005j]\u00e1\u00b8A\u00a7\u0010$?\u0017U|\u0095\u001f\bJ\u009a\u00e7\u00ceF\u00104\u00ea\u00f7\u008e\u009c\u00a9_)\u00d7\u00f2\u0001f\\5\u0015[\u00b2>\t\u00c4B<\u00f3\u00b3\u00a3CE\u00da\u0014\u00c4\u00fazye\u00d4\u00c1b\u0094\u00dbu\u00e2\u00f9\u00f6\u00fa< >\u0013I\u000b\u00abkA\u0012\u00efxe\u00f3\u00c1\u00a9\u00f8\nC\u00c8\u00ff\u0012\u008a\u00f6(,\u001b\u0087\t\u00b7\u00caY\u0081@\u00cf\u0091T\u001c\u0004$\u00df\u25ab\u000e\u000eh}c\u0004\u0098\u0085\u0093\u00a1\u000fn9\u00b9VU\t\u00c2\u00a4\u00ba\u00b2}\u00ad\u00d6R\u00e3\u0018\u00cc\u00854\u00b4\u00b9N}\u00d8fF>S\u000e\u0010\u00e2\u008b\u00c2\u00f0Ig\u00bc\u00be\u0003I\bb0}pZ\u009er\u001d\u001f]K ;%W\u00da\u0094\u00d1C9U\u0002t\u00ed\u0085\u00f5>C\u00b8O\u00e8pes5\u00fc\u0016\u0002Q\u0015#>-c\u00bb%\u0000;\u009b\u00f7<\u000bwI\u00e9\u00c9/g\u00d3?\u0002\u0019\u00d8\u009e2\u00a3c\u00bc\u0014\u009b\u00a1+\u00178pr\nX\u00f2\u00ae\u00a0\u00d2-1\u00feZ\u00e8\td\u00b5\u001b\u00a4I\u000e\u00c5\u00d1&\u0017 \u001c3:p\u00e1\u00d04\u0007\u00c5\u00f5|%\u00baP\u00f6e\u00b1\u00c5\u00fd\rZ\u0081\u001bG>c\u0095M\u0082\u00d7.p\u0014\r\u00bf\u0084)=.\u00efK\u0000\u0016'={\u00d4\u00d6iC\f\u00bf\u0083\u00aa\u00c5\u00b0&\u00cfq\u00af\u009c\u00d2\u0016\u000e\u00ea\u0085\u00eb^\n\u00fe\f#_=2?\u00e1\u00ca\u0006j\u0098\u00c2\u000fl\u00c7\u001f/LR4\u001e9\u00b2\u0097M\u0084\u008bD\u0095\u0093\u0005\u0089\u007f\u00c7{h\u00f0P\u008eVMK\u00ddf]\u00d79\u0013\u00e5g^\u00ca\u00e1\u00a2W\u00a4\u009d4\u00e6\u00ef\u0017H\u0007)\u00f2\u00f5\u00c7\u0012\u00d7iW)\u00d5\u00fd\u00f0\u00ae\u00d7\u0080\u0002\u0085\u00b0YhO\u00d6\u00fa))\u00a3Kj\u008a9'\u00db\u00f8\u00c2\u00f3\u008d\u00b2\u0089\u00a8\u0084\u008b\u00f5\u0004\u00fe\u00ffI=\u00f7OA\u00c1\u0092\u00b7aX\u00d9\u00ec\u000fr\u00fa\u00e4\u0085f\u008e\u00fb\u0018y\u00ba\u00ed\u00bdE\u00a7\u00d9\\,\u00f21b\u00dfu\u00e4\u0018\u00068T\u0094'\u0085N)\fL|]\u00f3\u00b6<\u008bq7\u00c8\u00c47\u001d\u00e1I\u0091-\r}\u00eb\u00be\u00b4\u0091o\u00dfS]\u00f3 `\u0098\u009fj\u00a3\u0010\u0081seS\u00c0[\u00f1\u000e\u00b7\u007f\u00cf\u00cf\u0083j\u00ca\\\n\u00d3;H\u00e0\u00f5\u000e\u00ac([\u0086l\u0085\u00c2\u00a1\u000bl\u001b\u00bf\u00e4\u000b\u0011_\u009c\u00b6&3Z\u00bf\u00f2\u00b6o\u0006\u00d3\u00ce\u000f\u00a3i\u00fb\u001a\u00ec\u00af.\u00f1'\u00e6\u00ae\u00cd\u001c\u00eaz\u001e\u009eH\u00ad\u0010ly\u00d7\u00b3l\u00c1u\u00eb6l\t|\u0018\u007f\u00b7\u00d8\u00c4\u00c5\u0083\u00ac\u001b<\\*\u008fz)\u00054i\u00c4\u00d0\u00f2&\u009e\u0096\u00fdnQ\u00f3{\u0000\u00bc\u00f1\u00f7\u0086\u0092\u00e4\u000fe\u008aNw\u00e3\u0015\u0006C\u008f\u00c7\u00d4.\b\u00f3\u00f3\u0015&\u00b3\n\u00f7@\u0088\u0096Mi\u009d\u00eci\u00bc\u00f2a\u00a4\u00c2mm\b\u0098\u0011\u00a95\u0096\u0007i\u0086\f\u00c6Xx\u00ae\u00aeD\u00b5\u008e\u009e\u00ca\r\u00caW\u00c1\u00bd\u00e4\u00b8\u000e&\u008b\u001c\u00cfGv\u000ff\u00e0.:\u00ef\u00bc\u0090c\u00acc(q\u001e\u00ef\u00f9$\u00951\u0001\"\u00c2\u009c\u0012\u0082\u008b\u0006\u008c<\u00cbA\u0087\u00a2\u0084\u0088a\u00cbP&\u00d8\u00e7\u00ee\u00ca\u00f1RZ\u00b0t\u00f8\rT\u00fa\u0005\u0013c\u00ce\u001cd\u00de\u0011\u00aa\u00d9J*\u00fdr\u00027\u00b2\u00f8T\u00a2\u00be\n\bU\u00e3\u008cVj\u00ae\u00bdA-\bp\u0089\u00f6%\u00a7\u0099\u00ab\u00cc\r\u00bb\u009f1\u00f7\u008cm\u0098\u001d\u00bd=E\u001b\t\u0011CR\u00c5N\u0087\u0011\u00a83\u00feR\u0010\u0086\u00ec\u00d7v\u00e3\u0089\u0005k\u00e1\u00c08'\u0006o\u00a2!D3#\u0011\u00af\u00bb\u0003\u00a6\u000b\u00a2\u00ff\u0089[\u00eeY@\u00f3\u00b0}\u001cV\u001c}\u009f|\u008f\u00fd \u00c1\u0087\u008d\n\u0018b\u00a8J\u00fe\u00aba\u00d4\u00c1\u001f\u0004\u00f3\tfb\u0017\u00bde\u0011]0I \u0003\u00ff\u0001\u0007\u0016s\u00edt|\u00f0\u00dd\u00ad\u008c\u0013Z\u00b0\u00e9*\u00dc\u00f0\u00d66P\u00f7;\r7Y#\u0085\u00994\u00f8(\\\u00d5&\u00be\u00fb\u000f5\u00f0oH\u0010\u00f5Xx\u00f5\u0085\u00cal\u00a8U`\u00a9\u0082\u00de_D\u00b7O\u00e1P\u00be\u008dq`\u00b7\u0000\u00fa\u00e5\u0088\u00f1\fT\u00b6h\u00f0'\u00e5\u008eA\u009c\u0016\u00a0\u00c9\u000efy\u00cd\u00e5Om\u00b0dsp;\u00fb\u00c89\n\u00dfg'X\u00b9\u0081H&\u00d6\u00cd\u0013\u00bf\u0093UNK|$\u00a7\u000e\u00c5\u00d3Ml\u009aeQ\u00dc\u00aeP?\u00c0\u001eT\u00b2A\u00a2\u00a1\u00e8\u0007\u0090\u0015z\u0092\u00df\u00aa\u00e0\u001aI\u00a7^\fD\u00daJ\u00c4\u00c5*Y;\u0000\u00b8\u00c7\u0087\u001f\u0085\u0004\u00efP\u00e3\u0099kR{\u0089\u00d0\u008cG(\u0097r'p\u00fe\u0091d\u00c8\u00f2\u0014\u0080l\u00bfr3.\u00f5\u0083\u0004Go\u00fd\u001a\u00c6\u00b9U\u00caTm\u0015\u00fd[h\u00d4\u0012y$_\u0003#\u0018\u00ac_\b\u00fc\u00c7\u0001\u0085\u0013\u00c7\u00a5\u0004\u001cP4yW\u0082\u009b\u00e9\u00b3\u00ba\u001b\u00e3\u008f\u00d1\u00f5\u0005f\u00ea\u00dd\u0094\u00edoA\u00b7\u00ee\bWu6_\u0018\u0095\u00d7J\"\u00de\u00c1\u0013\u0014\u001cqa\b\u0006\u00fa\u00a5\u00bb\fy\u00dfCM\u00a7\u00b3-\"\u00b3c\u0086\u0013\u0098/\u00f1\u00c3\u0014\u0083\u00e8\u008dL\u0081>\u00d1\u00b4\u00de\u00c4l\u00ac=\u00d4#@6\u00cc\u00d0\u00a7\u001f\u0091\u00e1\u00ae\u00f8\u00de!j@\u0012\u00acN\u00c9\u000eS\u0014E3\u00bc\u009flL\u00beT\u001cHm=R\u00ef\u000b\u00f7\u00de\u00e2\u008c\u008e\u0082\u00f8\u008d\u00b4fJ\u0010\u00bf\u00d5\u0015\u009c\u0088hu\u00fd:%\u008f\u00b90\u00afQv\r!\u000e\u00a0\u009b~\u00d6\u0013,\u00aa\u000f\u00ec8\u00fd\u001d\u007fO#\u0080\rg\u0092b\u00ba\u00b5\u00aeer\u00e5\u00faF\u00b8!\u0018\u0093\u000e\u0094\u0097\n\u00d7\u009c\u00ec\u00ab\u00ef\u001b\u00125\u00a0\u0080>\u00eb\u00ac\u008d\u00e2\u0011\u0006B\u00fd\u00e2P\u00b62z\u00e5I>\u00da6\u00d6\r)L\u001bTqD\u000e\u008e\u00fcR@\u00d46/\u00ca\u009d\u00c3\u0082\u0095\u0001j\u00b1\u0099\u00abMcVx_\u00a7:\u008d)\u001e\u00fd\u00a8@\u00e5\u00bf\u00bb4X\u0095\u000e*\u00da9P\u00c7>\u00d9\u00eb\u00cc+@F\u00ed\u001adg\u00d0\u0082\u0004\u00a4\u00f0\u0017v\u0095\u0006F\u0012\u00dbx\u00c3\u00b7s\u0005(Nt&\u0095t\u0086T\u00e3U\u00cb$\r\u0092\u00c9\bUp\u0091\u00bd\u00b4\u00fdN\u0001\r\u00af\u0007\u00e67\u00e2\u00bf\u00c5\u00a0)\u0005,\u00baad\u00cd\n`N\u00a972\u00df-\u00a0\u00d9#\re\u0004u\u008f@\u00ca\u00bb\u00c817\u0004V\"\u00167R\u00fb\u00fe\u00c5m\u00dd\u00af'1\u00ef\u0018Lg\u00d6H\u00d6U\u001c\u00dew3Ql\u00a9A\\A\u00fc\u001b\u0011\u008b\u00db\u0088\u00a8\u00b6\\bq\u00ab\u00c7zOB\u000f\u001ey\u00e6\u00f2\u00caf+:\u00ef  \u00ca0\u00e8\u001d+\u00de\u00e7\u00a6\u0083\u0015\u001a\u00dee[\u00c1\u001aUX\u00a4?\\\u00c6\u00135\u000f!'&\u0006n\u00c9\u0082f\u00f1g6\u00df\u001b!\u00ac\u0096\u001b\u00af\u00fd#S\u00f3Y\u000f\u00eb2\u00ca\u00fb\r\u00ca\u00c4\u00bd\u0011_\u009a\u0015f'\u008f\u0010\u0084\u00cbR\u00e5\u00de\t*\u00c4\u0019FS\u00cb\u00d1\u00e7-\u001d\u0006x9\u00f8]\u00993\u0013e\u001d\u009f\u0013\u00e8R\u0086\u0090\u008c\u0000\u00e62\u00e9\u009ff\u00bb^~]\u000eq\u00cc\u00cc\u00bf\u00b3\f\u001dq\u00d4\u008e\u00cc\u00bc&\u00ab\u0007Q\u00b3\u00d4\u00db\u00bd\u00d4\u0099\u000f\u00d1\u00be\u00f8K\u008b\u00dc\u0080nL\u001b\u00fb9\u00e9\u00a8\u00af;pa\u00c0\u0016\t\u00a8S\u001d9\u00d7\u00e8\u0098j/\u00a0w\u0003\u00f6>\u00a0Q\u00cbS'\u0099\u009c\u0089\u00ed\u00cb1\u00a9\u00f0\"M\u00fc\u00ba\u0011s\u00a5N\u0080\u00f9\u00d0\u001b\u00c3X\u001d$@G\u00fa\u0015\u0015h\u0094\u0082&O\u0088\tI9\u008d\u009c\u0085N\u0085\u00f8\u0002\u0013t\u00cdl\u009f\u00a7\b\u0094\u00fd\u008c\u00a2\u00bb\u001a6\u00c1\u00ae\u0087\u00a7I\u00db\u0014p,\u0087J\u0007\u00d3\re\u00176\u00d9R\u00a8\u00ff\u0002@\u00db \u00e6\u0094\t\u0086\u00b32Pl\u00f1\u00e3\u00ce\u00b0\u0019\u00fd\u001e\u0012\u00c7} \u00e5\u0015u\u00ff\\dB\u00f6kW\u00f3ki\f\u0013\u00b9_\u0083\u00a9\u0005h\u0007Oip\u0012\u00af\u0094\u0012\u00a8H\u00ea\u00a1\u0083s\u00e7e\u0089\u0018H\u00f1\u0017<I&n!\u007f%'\u00bf\u00c4#Z\u00d2\u00cf\u008b\u00bf\u00a1\u00d3h6`\u000fk^Oc\u0000\u00c9\u00b3\u00ab\u000f\u0001\u00f5\u0004-;\u00c4Y\u00a0\u0016\u00a1\u0006\u00a0\t\u00e3[\u00fa\u00f3\u0013L\u001d\u00c8\u001fe{\u00d2\u0006C/\u007f\u00f3\u0098\u000e\u0083\u0014H\u0081YF8\u0006\u0092\u00deV\u00a2\u00bbg\u00842b\u00f1~\u00e8:\u0093\u0099q\u00ea\u009e!\u0094\u0097\u00ac#w\u0010\u00bf\u00fe-fV\u001e\u0096\u0013\u00c30*P4Xd\u00d7\u0085\u008c\u00c5l\u00e5\u00a0F\u00abd\u00b4y7\u00a8\b\u0001c\t\u00ab, }\u00daf\u00bc\u00fe\u00b8\u009c\u000f\u00e3\n\u008a\u0090-x\u00c3>i\r'Pml\u00dd\r#@>d\u00b6\u00b7ep\u00e6\u00d6b\u001e\u00c3\u0014v\u00d7Q\u00c9$\u00d7\u00c9\u0012Gq\u0011\u001b\u0087Vt\u00f8J\u0004\u00b9i\t\u0005_\u00a1!\u00c2\u00f5\u0001wE\u000ek%<\u009b\u0086\u0002W\u001f\u0019\u00ff\u00cd-\u00fb\u008c\u0016\u00bb\"\u0095b\u0098\u00b7t\u0006qZ\u00d4e\u001e~\u00a8\u00b0@\u0017\r\u0098 C\u0013qt\u00cc\u00a8\u00b3\u00ee\f8\u00d9&\u00f1_\u00de\u0010`\u00ad\u0000!\u0002\fVQ(\f/z\u009b\u00bf\u00afl4\u00b3\tv\u00841\u00b7\u00bb\u0095B\u0083\u00fa\u0012st\u00c3\u008aG\u0089\u00b0 \u00fd0p\u00ca\u00e0^\u00f7\u00d2\u00cat\u0017\u008c\u00df\u0089FMx\u00c4H\u0097!\u000f\u001d\u00d5\u0014\u00ec:\u008e\u00b2\u00e1c\u00983\u00a8!\u00a6Kym\u0010uH\u00bf\u00c0\u00a1\u00e5\u00c8\u00e6\u00df\"q0\u00f2\u00f7\u0095\u0081\u00c6\u00e8\u00fb\u00abA\u00ab^\u00a47\u00eb\u00c7\u00bd\u000f0|\u00f0^c\u00b66a\u007f\u00f50\u00e2\u00b7\f\u00ab\u0010\u0014\u00dc0\u00a2\u0083\u00c5\u009a\u00ca\u000e\u00cf\u0097\u00ce\u00cf\u00b2\u00a5\u00ed\u001b<\u00dbe]\u0086P\u00bb\u00fa\u0000\u00ffP\u009a|o}U>\u00ce\u0082\u0018\u0090Q\u00a5\u001e\u0004\u0082&#\u00d0a\u00f7\u009c\u00bd\u00ee>\u00cf\u0092\u00cd\u00e1\nV>N\u0011\u001aA6\u00be\u00be6\u0081\u00ce\u00cd\u008e\u0088\u0098\u00e9\u00e9@\u00c4\u00b0;?6\u00c7\u00d0\u00e9\u00ca\u00b4\u00de5\u00cc\u0007g\u0088],~^\u00b3p\b>\u009b\u00f0\u008a\u00c3\u00a9\u008dG\u00fd\u00ddReL\u007f\u00eb\u00029F\u0098C\u0097K\u00ea^l-\u00d0`\u000e}F\u0098\u00b7\u0090\u00f5\u001d\u0005\u00dcfQ\u00d8\u00af\u0019\u008b\u008aZ(\u0010\u00f3\u00f3\u00a8!\u0082YyZ\u00a0\u0003\u00ee\u00fbA\u0080_\n~\u00e7S\u0091\r\u00feb\u001d\u00d07\u00af\u0017\u0017\u00a6\u00cb\u00b0g0\u0012\u00bcT\u00af\u00b5\u00d7\u00cfo\u00aby\u00eb8dv\u0010\u009d\u0085$\u00a4\u000fyP\u00d9\u00dbE\u0005\u0081\u0011\u008b]\u00b5r'\u00e3\u00bf\b\u00e7!\n\u00f57\u00d2\u00d7\u00b3\u0015C[\u00d0M\u00a5\u0017\u001a\u00ce\\w\u00b9\u0007V]\u00e9\u00ce2\u008e}\u0016\u00cd+B\u007f\u00c3\u00bdY\u0087U\u008e \u0000\t1\u00d9i\u0098\u00a2\u00dd\u00b7'\u007f\u00da9\u00a6\nmn\u000b7nS~\u00d3\u00b2\u00cb\u00bf\u0099z\u00df\u00f3\u0001O\u00a1\u00ae\u001a\u00df\u00c8\u0019?\t\u001cI`!\u00ed\u00f7\u00d8\u001f\u00da\u001c@\u0096\u00b8\u00be\u00ae\u001e#\u00d9b\u0082|\u00104\u00d6DF\u001c}rJ\u0012\u00972\u00f1\u00fd\u00a0\u00a8\u00f5\u0006\u00d8*{\u00fd\u0003\u008b\u001c\u00cc\u00be{\u00f1E\u00c5\u00c0G\u0016\u0090\u00ff\u00862\u00c0\u0099\u0016\b\u00ff\u00b59\u0082\u0097\u00ece~6[#\u0013\u00de\u00ff-.\u00d8\u00af@\u00d6\u0091I\u00a1\u0083[\u001c\u00fc\u008d>=X\u0012\u00ec\u00bb0s9\u00b6\u007f\u00c7\u0004\u00ccOU\u0007\u00ad\u000b\u00acU\u00bb\u0013\u00a0/R\u00d8\u00e5\u0087\t\u00a6\u00b1N\u0005\u00f4\u00f1\"i\u00c7\u00be\u00e8\u00d5\u000b\u001e\u001a\u0085\u00b8\u0019\u008bS(\u0097zI\f\u00daO\u00ad8\u00dewT\u00f5\u001di\u009c\u00b9\u0006op\u00b5\t\u0019\u0087\u0013\u00c7x\u001a)i\u00deG%\u00bd\u00f6\u008e<\u00df\u001aL\u001a\u0019\u00a3\f\u0011\u00e7\u0082\u001ev\u00e95\\^\u00bdX\u0098\u0011\u00d2\\\b8 ";
+                var4_3 = "\u00afK\u0015;\u0085\u00d4\u00b4xNE\u00d8a]\u00d5F\u0004n\u0019FMTB\u00ff\u00d7\u0018\u00c3m\u009a\u008by\u008aR\u00ae\u00f3\u009bx\u001e\u0096\u00fb\u000f`\u00871\u0095\u00b6\u008b\u0018g9KCu\u00a4\u00c7\u00e9\u0095\u009ec\u00fdRF\u00b9m[[a\u00e19\u00e5P\u0013-\u009b\u00da\u00b2\u0089g\u0082\u0018\u0006\u009b\u00e0\u00bc\u00b6\u00f4\u008b\u000e<<5\u00b7\u00baA>\u00f1\u0083\u0000 x\u00e5*\u00a6\u00c4\u00c2\u00e8&h\u00dd}\u00df\u00da\u008a$\u00d5Am%9\u00ba\u009fO\u00eb\u0090(\u0013\b\u00c4\u00bevo\u00ef\u00c2,;\n%\u00cd\u00aah\u00fat\u00ca\u00dc\u00cd\u0005*WtG\u008a\u00d7\u0089\u0090\u0000\u00ff]\"\u00b8p%\u00dc\u00db\b\"<\u0019\u001a\u00e4Q\u00f4\u00b3p\u00edV6\u00a3 \u0086\u008a\u001e\u0095\b\u0005f\u0094.\u00ab\u009e-}\u0097\u001c\u00f6a\u0006F\u00f1%}le\u001b\u001a\u0004%N\u0093\u0003\u00f9\u00d6\u00ec\u00bd\u000e\u00b8\u00c3\u00eb\u0017Q\u0010\u00c98#Z7\u0096\u00f2\u00e3)\u0092\u00be\n_mC\u0019#\u00fc\u00d7\u009b\u0018\u00ab[d\u0080\u00b8\u00c2\u00c2\by\u00e4\u00abg{5\u001e\u000b.\u00c6P\u0094\u001bk\u00acx`\u0014\u0001\u00eb\u00bd\u0017\u00a0C,\u00fc\u00fc\u00ba\u00fe\u008f\u001a\u00f4wPawD\u00b8\u0018\u00f5\u0004\u00af\u00f0\u00e0\u00aa\u000e\u0014(-\u00fd\u00ee\u0001E\u001fIua:HR\t\u0098\u009d\u009c\u00e5\u00d8\u0098\u00d5{\u00cc\u000e\u008a\u0096|kLT\u00d2\u0015\u00d6u\u008b3\u00c6\u00e4\f*c\u008b]\u00048\u00e2\u00170r\u00f0\u0086-\u00cbH\u00c3>\u0097\u00d2\u0005#Z\u00e6\u00b6\u00cb\u00e6\u001ck\u00c9\u00a9\"\u00c5\u00ad\u00d6\u00b0\u009be\u00be\u0092k'\u009aj\u00c0+\u00af\u00180\u00d1\u00ffE;q\u00e4\u0087\u009e\u00caF\u0015\u00b9\u00e4\u00b8\u00caQm_\u00d7}u\u00ba\u00e8Cc6\u0095\u00fb\u000b\u00b8[\u008f\u0005\u00a7\f:\u00fa\u0005\rP\u001bL\u00b9!\u0085T _<\u00e8\u00d7\u00ef\u001e\u00bc\u0091u\u0014\u0084y\u00f8\u00d2\u0012h:\u008bR\u0010\u00e11+\u0087TI\u0092\u0089EI\u00bb\u00b4\u0010\u00a0\u00f0\u00d2\u0012\u00b6\u00064\u00e6\u00ac'\u00f9\r\u00b5\u0016\u00b5\u0019\u0083\u00e2\u008fG\u00e4X\u0017G\u008c|\u00c7\u00f7\u00cd9\u00e6\u00ee\u00cf(\u00c2<\u0096Yv\u00bc\u0092\u00868G5*\u0019\u00aa\u0083\u009b[`7<K\u0091LC\u0085?~}\u00bd]B\u00d1\u001eCs\u000f\u00fd\u00ee\u0012=\u00fe(\u00cb*?d\u00c3\u00014\u0006M\u00a4P\u00d7.\\z\u0011\u0094\u00d3p\\$p\u00e9\u00fa\u0083P\u00cd\u0017\u00b3-d~\u0081\u0011d\u0017!\u00e6\u001b\u0004;\u0091\u008c\u0006^\f%\u0086O\u00c9\u00ae\u001co0\u000f \u00cb\u00ff\u0013\u001c#~\u00de\u000bQg\u00d5\u000e\u008du\u00ae\u009a\u0015\u008cH\u00af\u00bc\u00f9\u00aa\u00a3\u000ek\u001e\u00fd\u00f5u\u00d4\u00af\u00ac!\u00ba\u0005\u008d-\u008b\u0018\u00f9Y\u008c/s=$\u00b6M\u0086P\u00e7\u00a9\u0086\u0016Y\\\u00aa\u009a,\u00c6\u00d7Ld\u00116s\u00d3\u00da\u00c9\u00f9])\f;\u00be\u00b5\u00a7\u00d2\u008aAJ\u0018\u0010k\u00c0\u0087\u00e0\u00e0m\u00b4\u00ba\u00ef\u00e3\u00c1\u0085\u0001\u00af\u0096o\u00e9y\u00ae\u0082\u00c2\u00fa\u00c1\nc\u00ceb\b\u00e3x\u00e9]\u00a95\u0014\u0087\u00da\u0012}hTwk\u00a1\u00c0\u0017\u00b2\u00a1\u0099.\u00ea\u0091K\u0015\u0099\u0011\u00ff%\u00a2\u0011\u00b1\u00bc\u00ef.\u00bc\u00f4G\u00a0\u00e6a\u00a6\u00a4[\u0014\u00a6*\u00e3\u00fcj9\u0093/o\u00a6\u00f8\u0010\u00847dG\u00e3\u008c\u001e \u0016\u00b6\u00c84?\u00ac\u001c\u00f1s\u00aa\u00f4\u009d\u009co\u00ef\u0003N\u0002\u008d\u008c\u00ad\u00adb\u0019^2)`\u000f\u00f7\u008a\u000e&a\u009dR\u00e4\u0003Lrk\u00c0\u0016x?H\u00c7\u00abC\u0019\u008b\u00d0\u00b3\u0085\u00fa\u0002\u00c1Q\u00f1w\u00ccuP\u00d4%\u0005\u00bc\u0081\u0088\u00b0xFzp\u00d0\t\u00e8R\u0092\u001c\u0014\u00a7\u00e0\u009cj\r\u00d2;\u00c20\u0084\t\u0002\u0010\n\u00da\u00ff\u009fp\u0011s'\u008c\u00c2\u00bb\u00a3\t\u008c\u00e1\u0003XS\u00cb\u0010\u0014\u001fi\u0011\u0099\u00f6\u0091~\u00d3z7gl\u00dd\u00bcW\u00d7\u00e5-x\u00df\u0011\u00f0=\u00ca\u00dbD9\u00d5\u00cf\u00e6\u00c9\u00c2}9\u00d1{qN\u0017uM\u001d\u00adAmb\u00bc\u0085\u00c7I\u00cf\u008a\u0083r\u00f9\u00d0\u00be\u0019\u00ae\u00e7\u0093K\r\u0082|\u00a6^\u00a5\u00b6s\t\u00c2\u0080d\u00e4\u00b5\u0015h\u0083\u00efV\u00d71\u0091\u00d6Ez\u00f1&hF\u00fd$N\u00fc\u00d8\u00c3,\u0015\u00fb5\u0089wO\u009a\u00d8\u00cc\u00bdF\u00a1@7\u0002Q\u00fa\u00ee\u00fc2\u00cc\u00a7.?\u00f5J\u00bav\u008f\u00a4\u00c0y\\\u00fc\u00aef&X2\u001d\u009b\u00b0Kj0\u00f9V\u00f7Su\u00c44\u00d5|\u00c6\u00a1f\u00ce\u00fa\u0012\u00e63\u00a3,\u00e7\u00b39\u00df\u00a5\t\u00b3y`\u00b1~\u00ee\u00f6p\u00c8\bd\u001d\u0081\u001e\u00f7\u00fe\u00a1 C\u00e1gR\u00f2\u00ab(K\u00b0:\u00b70\u0018=\u00b0$L\u00e6=\u00e09$\u00a0\r\u009eD\u0000x\u00e1\u0019{\u0096\u00c3\u00c4\u0091\u0088TKg\u00d9\u00afF|\u00da\u00dao\u00e8^t\u00b3\u0000L\u0097\u00f4\u00ef\u00e9\u00e4\u00a5'\u0084[\u008f\u008b\u0089w\u0006\u00e3b\u0017\u00e9\u00e7\u0090\u00f8-\u00c7\u00fd\u00e9T\tK\u00f1H\u00ae\u00ff\u00ab\u001a\u0099\t<\u00a4\u00d3V(\u00dd\u0000\u00ad\u0000M\u0081\u00cb \u0010\u008bUU\u0093\u00f1\u00ed\u00ad\u007f\b\u00c4\u00a3HcRA\u00c7\u00d9i_/Pj\u00aajMb\u00be7P\u00e1\u0001\u001aM\u00d3\u0004~\u00bf\u0017\u00bd\u00f3~/7\u00f9bk\u00ba7\u00a9K\u0012\u00c6\u001f.\u00a4R\u009fL&s\u00c8\u00ca\u0007\u0010\u0097\u009di#g\u0091\u00a7\n$\u00bf\u00d9V\u008d/\"_U\u00b8\u00f2ml*q\u00a2\u00cd\u008aW\u00fd\u001c\u0010\u001c\u00bbP5\u00fe\"esC{\u009f\u0016\t@\u00dc\u001f\u00ab\u0086\u00c2\u0097\u009a*f2\u00c1\u00cag\u00f0\u00e8\u008a!\u00fbf2\u001b\u00bb\u0092\u00a5,\u00fdau$+S\u00f6\u00f5\u00cba\u00f8\u00bf\b\u0094\u000fzQ\u00a3\u0017\u0019\u0001\u0090$\u00f0\\T\u009aC\u0003\u0091W\u0091\u0090\u0011\u009b\u00bc\u00f2\u0094'V\u00a2}#\u008b\u00b0\u00930X\u00fdcBztA\u00eb\u00c9\u00af\u00c4\u008e\u00d8^\u00b3\u00f4\u009e\u0001?n\u008e\u00b5\u00bf*j\u0011_zr\u00c4\u00e0B\u00d5\u00c4\ud865\udd22\u00cd}\u00be\u00d6df\u00cb\u00eb\u000f UC=c\u00d2\u00c0\"\u00f9|@\u00c0\u00c6\u001b\u0087\u00a7\u00de0)8\u00f7c\u00c4\u00cc@2~'\u00ferQ\u0090)\u00cb\u0093\u001c\u00eek[\u009e-(\u00d1R\u00e1u\u00a0-i\u00ea\u00f3\u0011\u00e9\u0005\u0089Q\u00d3\fP `G\u00cewU\\4\u009aO\n\u001aY\u00b0\u00b5U/>\u0011\u00e4_6\u00f0\u008b\u000e\u008c\u009b*\u00fdZX\u00c5\u0013\u0017U\u001el[\u001d\u00da\t\u00bd\u00d5\u009a\u00daIy\u0015;\u0011\u00bdV\u00b0*\u008c\u00e2t\u0011\u00d2\u00d6OnZo/\u00fbBaw\u00fe\u009e\u00bb\u00adl\u00ae\u001d\u0096e\u00ce\u0015\u00a1\u0005N\u0080\u00c72\u00ff\u00ed^c?f\u0081r\u000fMm\u00fb\u00be*\u0017sw\u00c7\u00b1\n\u0002i\u00fcZ\u00b6yD\u0090\u00da\u00e4K\u0017s.\u0007\u00b8\u008d\u00b4`\u00b82\u00ee\u00b5x\u00da\u00f9Q\u00b5?o\u0090B5\u00b1\u00d9\u00f7\u00e9\u00cf\u008e\r\u00879\u00d0\u00e8\u00b0~K_$\u00166\u00f2\u00da\u00e92\u00e4\u0002\u00a2\u0010,\u00e3\u00a0f\u0095\u00da\u00c2%-\u00bd\u00d5\u00d3\u00cf\u000b\u0086\u00e5\u0015k\u00af\u00f9\u00eb\u0087e\u00e8\u00d5H\u00bb\t\u00d6\u00b2\u00e5w%\f\u00b3\u009e\u0005\u0007\u00c6\\\u00e9\u0012\u00f9\u00bd\u00d1\r\u009ef\u00e0q\u000e\u008c\u001b\u009dz\u0087\u0012-\u001a\u0014\u00ae\u009c\u0006\u00ef\u00b2,(\u0006\u00b0:\u00bfd\\\u008ab\u00b3\u00a6\u00ca\u00f1r\u0010\u00b3\u00b6\u0003#ES\u00b7v\u00a0\u00fc \u00bbQW=\u000b\u000f\u00bc\u00ff\u00c6\u00c0\u00cer\u00a7j\u00feQ\u00d0\u00e2#\u00db\u00a0\u000e-\u00e4u\u0082=G\u00c7\u00ff\u001fa\u00ff\u0016\u00cf+\u0002G>!\u0094w6\u00f0\u008fin\u00b6]\u008e:\u00c3\u0092\u0093a\\\u00f5w\u00ec\u0010\u0003\u00e3\u00bfS\u00bb\u00be\u001d\u00d73v1\u00d8\u00ff\u0013~\u00b2jMv\u00fd\\\u00d9\u00d7U\u00e4E\u00f4N\u00f7ob\u00f3@!\u00c6D|\u0096\u00c6\u00a5G/x\u00a8\u00f6\u00b6}\u00e7\u00edMdU\u00deTEkwB\u00a2\u009c>\u0093W\u00fe\u00bd\u00c9n\u0019j\u001d\u0083\u0083l^Ilf\u00d6\u00a12\u00ea\u00d8\u0014l\u00d9\u00d0\u00d7\u00d1\u00f1\u00d8!\u008dK\n\u008c\u00a1\u00bd\u0012C~\u00ed\u009b\u0016f\f\u0087\u00ca\u007f\u000f\u00a9\u00d0L\u00ca\u0097!K(\u0015F]*\u008doJ\u0086\u00b9\u00a7\u0097\u00ac\u008c\u00ff\u00ca\u00a7\u0012\u00d0\u00c83\u00c7|\u000b\u00b95\u00d5\u0080\u0090\u00eb\u007f\u009e_-\u0082\u0017\u00d1\u009c\u0097\u0097\u00cd*\u00f3T\u00b7\u00d7\u0004aIV\nC\u00df\u00e9\u00f8D\u00db\u00ce\u00cc\u000e\u00fa\u00e6\u0091_5\u00be\u00e9\u00c6n\u0080\u00b7\"q\u00b8\f\u0081\u00f7\u00c6/\u00b3\u0095\u00f9\u00a9\u00a8\u00e2*\u00c8\u0017-\"Gb\u00c2\u00b75\u0002\u0018O\u00be\u00f4\u00ddQ\u00a9\u00f18Z'\u008a\u00fa\f\u00fa\u001do\u00ac!\u00fcM\u00e8\u009a\u0093\u00bb\u008b\u008e\u00a2v\u001dzY\u00a8\u00c2\u001a\u00efN\u001b\u009f\u00fb\u00d6\u00a2\u00ccl\u00eb\u0014=\u0086[\u00ec\u0019\u00a4\u008bP6\u00d3\u00c9\u0094\u0002!\u00d1b\u0014n2o\u0015\u00cf\u0099\u000f\u00e2\u0095-\u00c8\u00f3\u00a2G\u00eb\u00f7\u0098\u0087\u00b9\u00eb\u0001g\u00b4\r<\u0014\u0002x[UM{\u00f5t\u0092\u0083\u00ef\u00f0ga\u00f2\u00f1\u000e,\u00e2q\f\u00e4lj\\6\u00e1_\u0017\u00fby.\u00b0\u0012\u0001\u0019\u008d'\u008e<\u009b\u0096\u00ba\u0087\u00afe\u0005E\u00de\u00cc\u0000\u008a\u0015\u00fe\u00d4)K[\u001dZ<\u00edX\u00ab\u0083vzy\u00f5\u00eb\u001d\u0092\u00f0\u00b3\u0019\u0015\u00f9@\u0019\"\u00d8.\u00eb\u008f\u00f6\n\u00f8\u0088\u008eGArdSM\u00f2\u00fe\u00ddL\u00ab\u0014\u0015el/\u008a\u00b0\u0019\t\u0095\u00bb\u0089\u00e3\u00a2\u00c9C\u0086\u00f3\u00f8\u00e3\u008f\u001e\u00b0\u00d6\u00d0B\u008a\u00f9\u00fb\u00d9\u008b\u0016\u0011\u00d8\u0000'Rg\u001f\u00a9\u00c2\u0006\u001c\u00d8e-\u009c\u0085\u009d\u0094\u0014w\u0010\u00f4\u0089\u00e0\u0085\u00c2a\u00d0 8\u00fa|z*9\u00ae>\u001afu.\u0088\u00ef\u00ea\u0087\u00bc\u00bf:\u00d4\u00ed\u00de|$\u0094\u0091\"^\u00fd\u0002IZ/\u00f2\u00d5\t\u00cd\u00c8F>U\u00a4\u009f\u00a5A\u001dl\u00c7\u25a2\r\\\u00ae\u0088,\u00a5\u007f\u00aaY\"\u00c1\u00can\u00be\u00f7\u00dd\u0001\u0013\u00f6QW\u00d3\t\u00c2N\u0007\u0016qL\u00fd\u00f5\u00cdo\u00c7nM7\u0000\u00c5\u00ab\u00be\u008a!y\u0006\u00df\u00f8zO\u0003\u00fe\u00fbg9\u00cd\u00f3\u00d8\u0005Gq\u00c06\u0012\u00bfV\u0082\u009c%\u00bc1\u0097Q\u0098\u0011\u00a0\u00b6'_\u001d\b\u001bn<\u0080\u0081\u00e3\u00af\u00e6S\u00d7\u00ea\u00e3\u00dcH\u00e6V\u001f\u0085\u00dd\u0015;4\u001fg\u00b5\u00e0O\u00cfN\u00b0}\u0014\u0084\u0085'\r\u00b0\u001egs\u00f7\u0018\u00dc\u00d7\u007f\u00e1X\u00c8\u00c4\u0004\u001c\u00bb\u001f\u0004\u00b9\u009c`A\u001f\u0001[\u008d\u0014\u00a2Q\u00ab\u00dc\u008f.\u008e\u009b\u001dV\u00a1\u00af\u00e6\u00e9/\u00e1\u0013\u00ca\u0092\u00f5\b\u0015j+\u00afC\u00df\u0093\u009a\u0082q\u00df\u00b1z\u0014\u0095\u00ee\u00bc!\u0085\u00c0\u00b7\u00a1\u00120b\u00b5HT\u00d1\u00d2+\u00b1Q\u00f9\u00e6\u00d1\u00db\u00d1b\u000ea\u000e\u00adr\u007f}! \u00b6\u00c8\u0080\u00f0,\u00dd\u00bc\u00a6\u0010\u00ca{\u00af\u00be\u009e\u00a6I\u009e\u0001\u007fu\u00da\u00c4t\u00b5\u00f6\u0006\u00bb\u00daD\u00eb\u0093M7!z>\u0001\u0012\u0097G\u0084){#3\u00e3\u009foy\u00cc#\u0002\u00a8\u00f1\u0007\u0092\u00ed\u00d5\u0099\u008e\u00f0\u0007\u00d0\u00ee\u00b4\u00ce\u00a3\u00d6\u00a0P(\u0007[S\u00ac\u00f4\u00bd\u00b4\u0007\n\u0018\b\u0092\u000f\u0086\u00ecBp\nj(\u00ba\u00ab\u00cc\u00c1Lc\u00f5[4\u00c76U\u00c2\u0095\u0080\u00d8!\u00f6g\u0016&Tr\u00ed(s2\u00a4\u00cd\"j#\u00dek\u00d9\u0091T\u001ex 5\u001e\u00fb\u0090\u00a2\u0006e\u00a0Dz\u0014\u00d2\u00ed\u0001\u00a4\u00d2\u00ec\u00aa\u0096\u0084\u00ec!/KN\u0003\u001d\u00e7\u00a4.\u009b\u00cd\u0080\u00f2\u008d\u0099(\u0098\u00d6\u00a1\u00ceB\u00fd\u0095\u00b2k\u00d96\u00e9v\u0011\u00de7\u00b4*%\u0014\u00ce&\u00c7\u008d\u008f.jU\u0003^\u00a8\u00d3-\u00a9w\u0018\u001a\u00cdKG\u00a8:)\u00be\u00b7u\u0092\u00b8\u00f5\u0014\u00e4\u00f9M\u00a1\u00b8\u00df\u0005\u00df\u0094\u001f\u00a1\u0002\u0014\u00bf\u00949\u00a5\u00ed?N/\u0017\u0018+\u00c1\u00c5\u00c2:\u00d2\u0081W\u00a2\u0007\u000e\u00b6\u00d8\u0087$\u00f1\u00f5\u00b9\u00e1\u00c4 v\u00d6\u008c\u00f3\u0013U\u009aHu#U\fU\u008f\u00d2\u00cc\u00c2C\u00c5G\u00acw\u00c0u\u0014\u00eb\u0096\u0081\u00eeB\u00e4\u00e0X[\u00d2d\u00b4\u00b7%g\u00e2\u00c2~\u00e8m\u0011\u00dd\u00d4Y\u00bc\u0001lLr\u0013:`i\\\u00e8\u00ee\u0091N\b\u00ee\u00ba\u00ec!h\u00b44X\u0016vq}*M\u009d\u00f1\u00a2\u00d5`w\u00dfD\f\u00ca\u0014\u009f\u00e8X\u00901\u009d\u000eQ\u00d0\u00fa\u0004\u00cc\u0097\u00f9\u00e5\u00d8\"\u0007~\u00d0&\u0010\u00b0\u00df\u00ecW6l\u00f7\u001bg\u00ba\u0010\u0005\u00fc>~\u0018\u001a\u00b7\u00e18\u0006\u0001\u00a0\u00bcW\u00bc\u00d6D\u00b8eS\u00aa\u00d5\u00de>\u00e0\u0090+\u0098\u00a9\u00ce\u00c4\b\u0004g\u00a6\u25c3!\u0010:i\u00d3{\u0002Z\u0087\u00149\u008f\u00de\u0002~\"(\u009e\u0013*_\u00e0\u00f0'Jv/\u0092\u008bL\u009e\u00e15U\u00006\u001e\u00ca0\u00ac\u00ac8\u00918\u00eaML`\u00dc\u00f4\u000enP\u00c7\u0018\u00d9%G\u00d5\u0090_0\u0010\u0003\u00df\u0019\u00a6\u0091\u0089jw\u0010\u00c2w\bw\u00c5\u001c^\u00a2\u0014\u00b4x\u00a7\u00fd\u00a9a\u0019\u00c8F\u00fb\u00eeU&\u00ce4M\u001ca\u0096\u00e5C\u00ea\u00f8\u00c7S\u00e5\u00ab$\"\u0007\u00d7\u00f0\u000f\u00c5uZ\u0088a\u00eaG\u00ad\u009f\u0015\u00ab\u00cf\u0014\u00d4\u00b7\u0017\u00cd\u00e5[\u009aA\u00a8C\u00e5\u001f\u001c\u00ab\u00ea\u0011\u00e4\u00ce \u00ad\u00f2Rd8\u009e\u0013\r\u00fb\u0012j\u00f6\u00fel\u00a0\u0093\u00c9\"+g\u0091\u0015 m\u00b7\u00a9\u0014\u00ed\u00c8\u00ac\u00d0\u00d3\u00e3\u0097\u00c2T\u00c1\u0001V\u00bc!\u00e2\u00bb\u00167\u00a3&\u00a7Z\u0090\u00cd!\u000f\u00f3\u00f8\u00ee\u00a0\u00e5\u00e1*\u00e3U\u00ed\u0006\u008c6\u0019\u00e2\u00be\u00ad\u00fc9k\u00a4\u00d1\u00e3G\u0085P\r#V\u00adpG\u0092:\u00c9\u001cq\u0017:\u00115\u00e7D\u00da\u00a2\u00a0?\u00e4\u0090<D\u00e2:e\u00f3\u00be|\u0015\u00e2H\u00be/\u00fd\u001e\u00c5:\u00fb\u00f5\u00cf\u00ab[\u00ea\u00ca\n\u0005?\u0096d*\td\u0007\u00e1\u00c1\u00f7\u00aa\u008f2\u00ea6P\u00fck\u00e41M\u0002\u00b6\u00d8H\u0081\u000f]\u009ek\u00dcfh\u008a\u00e5$\u008d\n{U\u00ea\u008e\u00c3\u00c7\u00d4+\u00bc\u00bc\u00e08;\u00fe\u0018\u0019\u00d0\u00e3\u0088JJl\u00c3u\t\u00d1\u00a5\u00fcm\u00e8\u00f8\b\u0002\u000e\u00efu\u00d0\u007f\u00d4\u0086\u000b\u00b2f\u00a3c\u00aa\u00ebdx\u009a\u00f6N\u0014\u0016\u001e \u00e5.G\u00ad\u001f\u00a4\u00a4z\u00eaB\u0001\u00d5\u008e\u00b5/\u009b\u00d3\u0019\u0012\u00d7\u00a0\u00dc>`\u00a8\u00fc\u00e4\f\u00ba\u00bc\u009e\u0006\u0085P*FX\t\u0093v\u00f1].\u0019\u008c\u00f9\u00baF\f>p\u0011Q\u00b5W\u009f\u009b|;u\u00ff2c1v\u00b3h\u00ea`\u001a\u008c\u00f8s9D\u00dc\u00e2f\r\u00fc\u0016~\u00b1+d\u00d2\u00b8\u00eaV\u00d7\u0083Zi2\u00d5\u00e9\u001f\u001c8.\u0003\u00fa\u00b8\u0015\u0006k\u0097\u0099  >\u00bc\u007f\u009c\u001b\u00b0\u001e\u00ab\u00d8\u00cf\u0010@D\u0006\u00f7\u00d6!\u00d3\u0010\u00b9\u0015\u00b3\u00f4\u0001\u00abO&\u0098_\u001aj\u00a1z%O\u00197\u007f\u0004\u00c9\u00aa\u00c2?\u00a5\u00b6\u0084aq_\u00ca\u00b9\u00ee\u0003m!'c]\u00b7\u00e5\u00bf\t$Y\u00a0\u008e\u00b5C\u00c7\u000f\u00e3\n\u00f4\u00fa)\u00eboE)\u00fejl\u000b(\u0093\u001d$\u00fa\u00bd\u00ecm\u00c1\u00bfC\u0006\u0082T\u009e\u00ee\u0093y\f\u00b9D\u00a0\u009a>\u00c9 \"\u00e0S\u001f\u00c1\u0019M\u00a8\u001a\u0011\u00a1\u00fa~N\u0006\u00999\u0004\u0084\u00fa\u00b3\u00d6\u00e8[\n\n\u007fy\u00d2\u009b\u0018\t\u009d\u00d5}\u0085\u00bcz\u00a7\u00e5\u00ef\b*\u008d\u00bd\u00a5\u00ce\u0089\u0086\u00ce\u0012\u00c7\u00f4K\u009a\u008b\u008b)`\u00ce8\u0016\u00cb,~n\u00d6\u00f9\u00f72Z\u00ae\u00ef\u00cb\u00b4\u000e\tZ\u00b1\u001b\u00cb|I\u0090\u00edIy\u00a5}\u0013^\u0096\u009dJ\u0095\u0081\u00c2\u00b4\u0093c\u00039RP\u0082\u00f6>\u000eb\u00b2\u00dc\u008f\u00ac\u00b1\u0091\u00d9\u00ad\u0080G\u001a\u0010%\u00c4\u00f5\u00a7\u00bb\u0080x\u00f6\u0014L\u00d7z\u008e'+n\tQb<\u00d2\u00f5\u0082\u0087\u00fd\u00e6\u0013P\u00e8\u001f\u00a9P\u0080{\u00ebpl\u00ba\u00ba\u00ea.\u00af\u00db\u00f7\u00c6\u00ca\u0007\u00ac\u00ef\u25f8\u0013\u00db\u25a1\u0002\t\u001a\u0019\u00ec\u00fb\u00f6\u0080G\u00bd\u00c6\u0007\u00fbW\u00aa\u009bz\u00f3c\u000f\u000e\u0017\u0088\u00b70\u0081\u00f1\u00a8\u0089%d\u00d3\u00f1n\u00ed\u0007R\u00ca\u2527\u00b7 \u2535}\u001cd\u00d0n<\u00e7|\u0098\u007f\u008fu0\u00bc\u00db\u00ff\u00ae\u00ba\u00f0\u0012\u000f\u009e\u00d4>\u0017\u00ea\u0000=\u00f8%\r\u001a\u00d4\u00a1\u00bc\u001el\u00bens'\u00d7\u00da[\u0007\u0093\u000f\u251f\u0093q\u25b1\u00cb!\u00ac['j,V\u00a5\u001evuT\u007f\u0011?\u0006\u00bb\u008c\bI0\u00d1\u00e0`\u00a0\u00b7:\u00e1P;\u0017\u0097pM\u0016\u0095\u008fP\u00d7 \u0001d\u00df\u0099\u0083o\u00e5&\u0089\u001b\u00bd\u0000`\u0005b-\u00df\u0010Y\u001c^v\u00ee\u00f9\u00c2#\u000eV\u00f5\u00ee\u00eb\u00fdj^ I\u0016\u00cb\u00e4Sg\u0010\tG\u0019\u00ad\u0096i\u00b4\u00dfQ\u001c\u00e0\u0018\u00fc\u00ff$\u00b4\u0099|\u001cN>s\u00d1K\u0018:R\u00a1\u008c\u00ac\u0001$\u008ab\u00a5a\u00d46\u00b8\u00fa\u0003\u00e8\u00a6\u00f3\u0005j]\u00e1\u00b8A\u00a7\u0010$?\u0017U|\u0095\u001f\bJ\u009a\u00e7\u00ceF\u00104\u00ea\u00f7\u008e\u009c\u00a9_)\u00d7\u00f2\u0001f\\5\u0015[\u00b2>\t\u00c4B<\u00f3\u00b3\u00a3CE\u00da\u0014\u00c4\u00fazye\u00d4\u00c1b\u0094\u00dbu\u00e2\u00f9\u00f6\u00fa< >\u0013I\u000b\u00abkA\u0012\u00efxe\u00f3\u00c1\u00a9\u00f8\nC\u00c8\u00ff\u0012\u008a\u00f6(,\u001b\u0087\t\u00b7\u00caY\u0081@\u00cf\u0091T\u001c\u0004$\u00df\u25ab\u000e\u000eh}c\u0004\u0098\u0085\u0093\u00a1\u000fn9\u00b9VU\t\u00c2\u00a4\u00ba\u00b2}\u00ad\u00d6R\u00e3\u0018\u00cc\u00854\u00b4\u00b9N}\u00d8fF>S\u000e\u0010\u00e2\u008b\u00c2\u00f0Ig\u00bc\u00be\u0003I\bb0}pZ\u009er\u001d\u001f]K ;%W\u00da\u0094\u00d1C9U\u0002t\u00ed\u0085\u00f5>C\u00b8O\u00e8pes5\u00fc\u0016\u0002Q\u0015#>-c\u00bb%\u0000;\u009b\u00f7<\u000bwI\u00e9\u00c9/g\u00d3?\u0002\u0019\u00d8\u009e2\u00a3c\u00bc\u0014\u009b\u00a1+\u00178pr\nX\u00f2\u00ae\u00a0\u00d2-1\u00feZ\u00e8\td\u00b5\u001b\u00a4I\u000e\u00c5\u00d1&\u0017 \u001c3:p\u00e1\u00d04\u0007\u00c5\u00f5|%\u00baP\u00f6e\u00b1\u00c5\u00fd\rZ\u0081\u001bG>c\u0095M\u0082\u00d7.p\u0014\r\u00bf\u0084)=.\u00efK\u0000\u0016'={\u00d4\u00d6iC\f\u00bf\u0083\u00aa\u00c5\u00b0&\u00cfq\u00af\u009c\u00d2\u0016\u000e\u00ea\u0085\u00eb^\n\u00fe\f#_=2?\u00e1\u00ca\u0006j\u0098\u00c2\u000fl\u00c7\u001f/LR4\u001e9\u00b2\u0097M\u0084\u008bD\u0095\u0093\u0005\u0089\u007f\u00c7{h\u00f0P\u008eVMK\u00ddf]\u00d79\u0013\u00e5g^\u00ca\u00e1\u00a2W\u00a4\u009d4\u00e6\u00ef\u0017H\u0007)\u00f2\u00f5\u00c7\u0012\u00d7iW)\u00d5\u00fd\u00f0\u00ae\u00d7\u0080\u0002\u0085\u00b0YhO\u00d6\u00fa))\u00a3Kj\u008a9'\u00db\u00f8\u00c2\u00f3\u008d\u00b2\u0089\u00a8\u0084\u008b\u00f5\u0004\u00fe\u00ffI=\u00f7OA\u00c1\u0092\u00b7aX\u00d9\u00ec\u000fr\u00fa\u00e4\u0085f\u008e\u00fb\u0018y\u00ba\u00ed\u00bdE\u00a7\u00d9\\,\u00f21b\u00dfu\u00e4\u0018\u00068T\u0094'\u0085N)\fL|]\u00f3\u00b6<\u008bq7\u00c8\u00c47\u001d\u00e1I\u0091-\r}\u00eb\u00be\u00b4\u0091o\u00dfS]\u00f3 `\u0098\u009fj\u00a3\u0010\u0081seS\u00c0[\u00f1\u000e\u00b7\u007f\u00cf\u00cf\u0083j\u00ca\\\n\u00d3;H\u00e0\u00f5\u000e\u00ac([\u0086l\u0085\u00c2\u00a1\u000bl\u001b\u00bf\u00e4\u000b\u0011_\u009c\u00b6&3Z\u00bf\u00f2\u00b6o\u0006\u00d3\u00ce\u000f\u00a3i\u00fb\u001a\u00ec\u00af.\u00f1'\u00e6\u00ae\u00cd\u001c\u00eaz\u001e\u009eH\u00ad\u0010ly\u00d7\u00b3l\u00c1u\u00eb6l\t|\u0018\u007f\u00b7\u00d8\u00c4\u00c5\u0083\u00ac\u001b<\\*\u008fz)\u00054i\u00c4\u00d0\u00f2&\u009e\u0096\u00fdnQ\u00f3{\u0000\u00bc\u00f1\u00f7\u0086\u0092\u00e4\u000fe\u008aNw\u00e3\u0015\u0006C\u008f\u00c7\u00d4.\b\u00f3\u00f3\u0015&\u00b3\n\u00f7@\u0088\u0096Mi\u009d\u00eci\u00bc\u00f2a\u00a4\u00c2mm\b\u0098\u0011\u00a95\u0096\u0007i\u0086\f\u00c6Xx\u00ae\u00aeD\u00b5\u008e\u009e\u00ca\r\u00caW\u00c1\u00bd\u00e4\u00b8\u000e&\u008b\u001c\u00cfGv\u000ff\u00e0.:\u00ef\u00bc\u0090c\u00acc(q\u001e\u00ef\u00f9$\u00951\u0001\"\u00c2\u009c\u0012\u0082\u008b\u0006\u008c<\u00cbA\u0087\u00a2\u0084\u0088a\u00cbP&\u00d8\u00e7\u00ee\u00ca\u00f1RZ\u00b0t\u00f8\rT\u00fa\u0005\u0013c\u00ce\u001cd\u00de\u0011\u00aa\u00d9J*\u00fdr\u00027\u00b2\u00f8T\u00a2\u00be\n\bU\u00e3\u008cVj\u00ae\u00bdA-\bp\u0089\u00f6%\u00a7\u0099\u00ab\u00cc\r\u00bb\u009f1\u00f7\u008cm\u0098\u001d\u00bd=E\u001b\t\u0011CR\u00c5N\u0087\u0011\u00a83\u00feR\u0010\u0086\u00ec\u00d7v\u00e3\u0089\u0005k\u00e1\u00c08'\u0006o\u00a2!D3#\u0011\u00af\u00bb\u0003\u00a6\u000b\u00a2\u00ff\u0089[\u00eeY@\u00f3\u00b0}\u001cV\u001c}\u009f|\u008f\u00fd \u00c1\u0087\u008d\n\u0018b\u00a8J\u00fe\u00aba\u00d4\u00c1\u001f\u0004\u00f3\tfb\u0017\u00bde\u0011]0I \u0003\u00ff\u0001\u0007\u0016s\u00edt|\u00f0\u00dd\u00ad\u008c\u0013Z\u00b0\u00e9*\u00dc\u00f0\u00d66P\u00f7;\r7Y#\u0085\u00994\u00f8(\\\u00d5&\u00be\u00fb\u000f5\u00f0oH\u0010\u00f5Xx\u00f5\u0085\u00cal\u00a8U`\u00a9\u0082\u00de_D\u00b7O\u00e1P\u00be\u008dq`\u00b7\u0000\u00fa\u00e5\u0088\u00f1\fT\u00b6h\u00f0'\u00e5\u008eA\u009c\u0016\u00a0\u00c9\u000efy\u00cd\u00e5Om\u00b0dsp;\u00fb\u00c89\n\u00dfg'X\u00b9\u0081H&\u00d6\u00cd\u0013\u00bf\u0093UNK|$\u00a7\u000e\u00c5\u00d3Ml\u009aeQ\u00dc\u00aeP?\u00c0\u001eT\u00b2A\u00a2\u00a1\u00e8\u0007\u0090\u0015z\u0092\u00df\u00aa\u00e0\u001aI\u00a7^\fD\u00daJ\u00c4\u00c5*Y;\u0000\u00b8\u00c7\u0087\u001f\u0085\u0004\u00efP\u00e3\u0099kR{\u0089\u00d0\u008cG(\u0097r'p\u00fe\u0091d\u00c8\u00f2\u0014\u0080l\u00bfr3.\u00f5\u0083\u0004Go\u00fd\u001a\u00c6\u00b9U\u00caTm\u0015\u00fd[h\u00d4\u0012y$_\u0003#\u0018\u00ac_\b\u00fc\u00c7\u0001\u0085\u0013\u00c7\u00a5\u0004\u001cP4yW\u0082\u009b\u00e9\u00b3\u00ba\u001b\u00e3\u008f\u00d1\u00f5\u0005f\u00ea\u00dd\u0094\u00edoA\u00b7\u00ee\bWu6_\u0018\u0095\u00d7J\"\u00de\u00c1\u0013\u0014\u001cqa\b\u0006\u00fa\u00a5\u00bb\fy\u00dfCM\u00a7\u00b3-\"\u00b3c\u0086\u0013\u0098/\u00f1\u00c3\u0014\u0083\u00e8\u008dL\u0081>\u00d1\u00b4\u00de\u00c4l\u00ac=\u00d4#@6\u00cc\u00d0\u00a7\u001f\u0091\u00e1\u00ae\u00f8\u00de!j@\u0012\u00acN\u00c9\u000eS\u0014E3\u00bc\u009flL\u00beT\u001cHm=R\u00ef\u000b\u00f7\u00de\u00e2\u008c\u008e\u0082\u00f8\u008d\u00b4fJ\u0010\u00bf\u00d5\u0015\u009c\u0088hu\u00fd:%\u008f\u00b90\u00afQv\r!\u000e\u00a0\u009b~\u00d6\u0013,\u00aa\u000f\u00ec8\u00fd\u001d\u007fO#\u0080\rg\u0092b\u00ba\u00b5\u00aeer\u00e5\u00faF\u00b8!\u0018\u0093\u000e\u0094\u0097\n\u00d7\u009c\u00ec\u00ab\u00ef\u001b\u00125\u00a0\u0080>\u00eb\u00ac\u008d\u00e2\u0011\u0006B\u00fd\u00e2P\u00b62z\u00e5I>\u00da6\u00d6\r)L\u001bTqD\u000e\u008e\u00fcR@\u00d46/\u00ca\u009d\u00c3\u0082\u0095\u0001j\u00b1\u0099\u00abMcVx_\u00a7:\u008d)\u001e\u00fd\u00a8@\u00e5\u00bf\u00bb4X\u0095\u000e*\u00da9P\u00c7>\u00d9\u00eb\u00cc+@F\u00ed\u001adg\u00d0\u0082\u0004\u00a4\u00f0\u0017v\u0095\u0006F\u0012\u00dbx\u00c3\u00b7s\u0005(Nt&\u0095t\u0086T\u00e3U\u00cb$\r\u0092\u00c9\bUp\u0091\u00bd\u00b4\u00fdN\u0001\r\u00af\u0007\u00e67\u00e2\u00bf\u00c5\u00a0)\u0005,\u00baad\u00cd\n`N\u00a972\u00df-\u00a0\u00d9#\re\u0004u\u008f@\u00ca\u00bb\u00c817\u0004V\"\u00167R\u00fb\u00fe\u00c5m\u00dd\u00af'1\u00ef\u0018Lg\u00d6H\u00d6U\u001c\u00dew3Ql\u00a9A\\A\u00fc\u001b\u0011\u008b\u00db\u0088\u00a8\u00b6\\bq\u00ab\u00c7zOB\u000f\u001ey\u00e6\u00f2\u00caf+:\u00ef  \u00ca0\u00e8\u001d+\u00de\u00e7\u00a6\u0083\u0015\u001a\u00dee[\u00c1\u001aUX\u00a4?\\\u00c6\u00135\u000f!'&\u0006n\u00c9\u0082f\u00f1g6\u00df\u001b!\u00ac\u0096\u001b\u00af\u00fd#S\u00f3Y\u000f\u00eb2\u00ca\u00fb\r\u00ca\u00c4\u00bd\u0011_\u009a\u0015f'\u008f\u0010\u0084\u00cbR\u00e5\u00de\t*\u00c4\u0019FS\u00cb\u00d1\u00e7-\u001d\u0006x9\u00f8]\u00993\u0013e\u001d\u009f\u0013\u00e8R\u0086\u0090\u008c\u0000\u00e62\u00e9\u009ff\u00bb^~]\u000eq\u00cc\u00cc\u00bf\u00b3\f\u001dq\u00d4\u008e\u00cc\u00bc&\u00ab\u0007Q\u00b3\u00d4\u00db\u00bd\u00d4\u0099\u000f\u00d1\u00be\u00f8K\u008b\u00dc\u0080nL\u001b\u00fb9\u00e9\u00a8\u00af;pa\u00c0\u0016\t\u00a8S\u001d9\u00d7\u00e8\u0098j/\u00a0w\u0003\u00f6>\u00a0Q\u00cbS'\u0099\u009c\u0089\u00ed\u00cb1\u00a9\u00f0\"M\u00fc\u00ba\u0011s\u00a5N\u0080\u00f9\u00d0\u001b\u00c3X\u001d$@G\u00fa\u0015\u0015h\u0094\u0082&O\u0088\tI9\u008d\u009c\u0085N\u0085\u00f8\u0002\u0013t\u00cdl\u009f\u00a7\b\u0094\u00fd\u008c\u00a2\u00bb\u001a6\u00c1\u00ae\u0087\u00a7I\u00db\u0014p,\u0087J\u0007\u00d3\re\u00176\u00d9R\u00a8\u00ff\u0002@\u00db \u00e6\u0094\t\u0086\u00b32Pl\u00f1\u00e3\u00ce\u00b0\u0019\u00fd\u001e\u0012\u00c7} \u00e5\u0015u\u00ff\\dB\u00f6kW\u00f3ki\f\u0013\u00b9_\u0083\u00a9\u0005h\u0007Oip\u0012\u00af\u0094\u0012\u00a8H\u00ea\u00a1\u0083s\u00e7e\u0089\u0018H\u00f1\u0017<I&n!\u007f%'\u00bf\u00c4#Z\u00d2\u00cf\u008b\u00bf\u00a1\u00d3h6`\u000fk^Oc\u0000\u00c9\u00b3\u00ab\u000f\u0001\u00f5\u0004-;\u00c4Y\u00a0\u0016\u00a1\u0006\u00a0\t\u00e3[\u00fa\u00f3\u0013L\u001d\u00c8\u001fe{\u00d2\u0006C/\u007f\u00f3\u0098\u000e\u0083\u0014H\u0081YF8\u0006\u0092\u00deV\u00a2\u00bbg\u00842b\u00f1~\u00e8:\u0093\u0099q\u00ea\u009e!\u0094\u0097\u00ac#w\u0010\u00bf\u00fe-fV\u001e\u0096\u0013\u00c30*P4Xd\u00d7\u0085\u008c\u00c5l\u00e5\u00a0F\u00abd\u00b4y7\u00a8\b\u0001c\t\u00ab, }\u00daf\u00bc\u00fe\u00b8\u009c\u000f\u00e3\n\u008a\u0090-x\u00c3>i\r'Pml\u00dd\r#@>d\u00b6\u00b7ep\u00e6\u00d6b\u001e\u00c3\u0014v\u00d7Q\u00c9$\u00d7\u00c9\u0012Gq\u0011\u001b\u0087Vt\u00f8J\u0004\u00b9i\t\u0005_\u00a1!\u00c2\u00f5\u0001wE\u000ek%<\u009b\u0086\u0002W\u001f\u0019\u00ff\u00cd-\u00fb\u008c\u0016\u00bb\"\u0095b\u0098\u00b7t\u0006qZ\u00d4e\u001e~\u00a8\u00b0@\u0017\r\u0098 C\u0013qt\u00cc\u00a8\u00b3\u00ee\f8\u00d9&\u00f1_\u00de\u0010`\u00ad\u0000!\u0002\fVQ(\f/z\u009b\u00bf\u00afl4\u00b3\tv\u00841\u00b7\u00bb\u0095B\u0083\u00fa\u0012st\u00c3\u008aG\u0089\u00b0 \u00fd0p\u00ca\u00e0^\u00f7\u00d2\u00cat\u0017\u008c\u00df\u0089FMx\u00c4H\u0097!\u000f\u001d\u00d5\u0014\u00ec:\u008e\u00b2\u00e1c\u00983\u00a8!\u00a6Kym\u0010uH\u00bf\u00c0\u00a1\u00e5\u00c8\u00e6\u00df\"q0\u00f2\u00f7\u0095\u0081\u00c6\u00e8\u00fb\u00abA\u00ab^\u00a47\u00eb\u00c7\u00bd\u000f0|\u00f0^c\u00b66a\u007f\u00f50\u00e2\u00b7\f\u00ab\u0010\u0014\u00dc0\u00a2\u0083\u00c5\u009a\u00ca\u000e\u00cf\u0097\u00ce\u00cf\u00b2\u00a5\u00ed\u001b<\u00dbe]\u0086P\u00bb\u00fa\u0000\u00ffP\u009a|o}U>\u00ce\u0082\u0018\u0090Q\u00a5\u001e\u0004\u0082&#\u00d0a\u00f7\u009c\u00bd\u00ee>\u00cf\u0092\u00cd\u00e1\nV>N\u0011\u001aA6\u00be\u00be6\u0081\u00ce\u00cd\u008e\u0088\u0098\u00e9\u00e9@\u00c4\u00b0;?6\u00c7\u00d0\u00e9\u00ca\u00b4\u00de5\u00cc\u0007g\u0088],~^\u00b3p\b>\u009b\u00f0\u008a\u00c3\u00a9\u008dG\u00fd\u00ddReL\u007f\u00eb\u00029F\u0098C\u0097K\u00ea^l-\u00d0`\u000e}F\u0098\u00b7\u0090\u00f5\u001d\u0005\u00dcfQ\u00d8\u00af\u0019\u008b\u008aZ(\u0010\u00f3\u00f3\u00a8!\u0082YyZ\u00a0\u0003\u00ee\u00fbA\u0080_\n~\u00e7S\u0091\r\u00feb\u001d\u00d07\u00af\u0017\u0017\u00a6\u00cb\u00b0g0\u0012\u00bcT\u00af\u00b5\u00d7\u00cfo\u00aby\u00eb8dv\u0010\u009d\u0085$\u00a4\u000fyP\u00d9\u00dbE\u0005\u0081\u0011\u008b]\u00b5r'\u00e3\u00bf\b\u00e7!\n\u00f57\u00d2\u00d7\u00b3\u0015C[\u00d0M\u00a5\u0017\u001a\u00ce\\w\u00b9\u0007V]\u00e9\u00ce2\u008e}\u0016\u00cd+B\u007f\u00c3\u00bdY\u0087U\u008e \u0000\t1\u00d9i\u0098\u00a2\u00dd\u00b7'\u007f\u00da9\u00a6\nmn\u000b7nS~\u00d3\u00b2\u00cb\u00bf\u0099z\u00df\u00f3\u0001O\u00a1\u00ae\u001a\u00df\u00c8\u0019?\t\u001cI`!\u00ed\u00f7\u00d8\u001f\u00da\u001c@\u0096\u00b8\u00be\u00ae\u001e#\u00d9b\u0082|\u00104\u00d6DF\u001c}rJ\u0012\u00972\u00f1\u00fd\u00a0\u00a8\u00f5\u0006\u00d8*{\u00fd\u0003\u008b\u001c\u00cc\u00be{\u00f1E\u00c5\u00c0G\u0016\u0090\u00ff\u00862\u00c0\u0099\u0016\b\u00ff\u00b59\u0082\u0097\u00ece~6[#\u0013\u00de\u00ff-.\u00d8\u00af@\u00d6\u0091I\u00a1\u0083[\u001c\u00fc\u008d>=X\u0012\u00ec\u00bb0s9\u00b6\u007f\u00c7\u0004\u00ccOU\u0007\u00ad\u000b\u00acU\u00bb\u0013\u00a0/R\u00d8\u00e5\u0087\t\u00a6\u00b1N\u0005\u00f4\u00f1\"i\u00c7\u00be\u00e8\u00d5\u000b\u001e\u001a\u0085\u00b8\u0019\u008bS(\u0097zI\f\u00daO\u00ad8\u00dewT\u00f5\u001di\u009c\u00b9\u0006op\u00b5\t\u0019\u0087\u0013\u00c7x\u001a)i\u00deG%\u00bd\u00f6\u008e<\u00df\u001aL\u001a\u0019\u00a3\f\u0011\u00e7\u0082\u001ev\u00e95\\^\u00bdX\u0098\u0011\u00d2\\\b8 ".length();
+                var1_4 = 2;
+                var0_5 = -1;
+lbl7:
+                // 2 sources
+
+                while (true) {
+                    v0 = 10;
+                    v1 = ++var0_5;
+                    v2 = var2_2.substring(v1, v1 + var1_4);
+                    v3 = -1;
+                    break block19;
+                    break;
+                }
+lbl13:
+                // 1 sources
+
+                while (true) {
+                    var5[var3_1++] = v4.intern();
+                    if ((var0_5 += var1_4) < var4_3) {
+                        var1_4 = var2_2.charAt(var0_5);
+                        ** continue;
+                    }
+                    var2_2 = "\u0016U\u256a\u001d\u001a\u25a5c\u0017\u00e4\u0094\u00f4Sdw\u0003:l\u00df\u00ba\u00a5[\u000b\u008d-\u00ea\u00e1\u009b\u0080r\u0093<";
+                    var4_3 = "\u0016U\u256a\u001d\u001a\u25a5c\u0017\u00e4\u0094\u00f4Sdw\u0003:l\u00df\u00ba\u00a5[\u000b\u008d-\u00ea\u00e1\u009b\u0080r\u0093<".length();
+                    var1_4 = 7;
+                    var0_5 = -1;
+lbl22:
+                    // 2 sources
+
+                    while (true) {
+                        v0 = 70;
+                        v5 = ++var0_5;
+                        v2 = var2_2.substring(v5, v5 + var1_4);
+                        v3 = 0;
+                        break block19;
+                        break;
+                    }
+                    break;
+                }
+lbl28:
+                // 1 sources
+
+                while (true) {
+                    var5[var3_1++] = v4.intern();
+                    if ((var0_5 += var1_4) < var4_3) {
+                        var1_4 = var2_2.charAt(var0_5);
+                        ** continue;
+                    }
+                    break block20;
+                    break;
+                }
+            }
+            v6 = v2.toCharArray();
+            v7 = v6.length;
+            var6_6 = 0;
+            v8 = v0;
+            v9 = v6;
+            v10 = v7;
+            if (v7 > 1) ** GOTO lbl85
+            do {
+                v11 = v8;
+                v9 = v9;
+                v12 = v9;
+                v13 = v8;
+                v14 = var6_6;
+                while (true) {
+                    switch (var6_6 % 7) {
+                        case 0: {
+                            v15 = 63;
+                            break;
+                        }
+                        case 1: {
+                            v15 = 87;
+                            break;
+                        }
+                        case 2: {
+                            v15 = 30;
+                            break;
+                        }
+                        case 3: {
+                            v15 = 57;
+                            break;
+                        }
+                        case 4: {
+                            v15 = 48;
+                            break;
+                        }
+                        case 5: {
+                            v15 = 112;
+                            break;
+                        }
+                        default: {
+                            v15 = 89;
+                        }
+                    }
+                    v12[v14] = (char)(v12[v14] ^ (v13 ^ v15));
+                    ++var6_6;
+                    v8 = v11;
+                    if (v11 != 0) break;
+                    v11 = v8;
+                    v9 = v9;
+                    v14 = v8;
+                    v12 = v9;
+                    v13 = v8;
+                }
+lbl85:
+                // 2 sources
+
+                v16 = v9;
+                v10 = v10;
+            } while (v10 > var6_6);
+            v4 = new String(v16);
+            switch (v3) {
+                default: {
+                    ** continue;
+                }
+                ** case 0:
+lbl95:
+                // 1 sources
+
+                ** continue;
+            }
+        }
+        s.c = var5;
+        s.d = new String[308];
+        s.a = Main.getInstance().getConfig();
+        s.b = "rules.disable_vaults";
+    }
+
+    private static NumberFormatException a(NumberFormatException numberFormatException) {
+        return numberFormatException;
+    }
+
+    private static String a(int n2, int n3) {
+        int n4 = (n2 ^ 0x5A86) & 0xFFFF;
+        if (d[n4] == null) {
+            int n5;
+            char[] cArray = c[n4].toCharArray();
+            int n6 = switch (cArray[0] & 0xFF) {
+                case 0 -> 204;
+                case 1 -> 250;
+                case 2 -> 19;
+                case 3 -> 201;
+                case 4 -> 176;
+                case 5 -> 111;
+                case 6 -> 222;
+                case 7 -> 223;
+                case 8 -> 24;
+                case 9 -> 79;
+                case 10 -> 227;
+                case 11 -> 53;
+                case 12 -> 235;
+                case 13 -> 55;
+                case 14 -> 21;
+                case 15 -> 78;
+                case 16 -> 166;
+                case 17 -> 112;
+                case 18 -> 17;
+                case 19 -> 105;
+                case 20 -> 190;
+                case 21 -> 197;
+                case 22 -> 188;
+                case 23 -> 34;
+                case 24 -> 158;
+                case 25 -> 193;
+                case 26 -> 248;
+                case 27 -> 242;
+                case 28 -> 99;
+                case 29 -> 131;
+                case 30 -> 218;
+                case 31 -> 155;
+                case 32 -> 145;
+                case 33 -> 101;
+                case 34 -> 149;
+                case 35 -> 74;
+                case 36 -> 237;
+                case 37 -> 175;
+                case 38 -> 117;
+                case 39 -> 60;
+                case 40 -> 171;
+                case 41 -> 115;
+                case 42 -> 87;
+                case 43 -> 224;
+                case 44 -> 88;
+                case 45 -> 202;
+                case 46 -> 12;
+                case 47 -> 165;
+                case 48 -> 138;
+                case 49 -> 107;
+                case 50 -> 230;
+                case 51 -> 205;
+                case 52 -> 127;
+                case 53 -> 89;
+                case 54 -> 48;
+                case 55 -> 143;
+                case 56 -> 3;
+                case 57 -> 59;
+                case 58 -> 161;
+                case 59 -> 20;
+                case 60 -> 187;
+                case 61 -> 228;
+                case 62 -> 15;
+                case 63 -> 67;
+                case 64 -> 216;
+                case 65 -> 214;
+                case 66 -> 100;
+                case 67 -> 66;
+                case 68 -> 71;
+                case 69 -> 134;
+                case 70 -> 179;
+                case 71 -> 215;
+                case 72 -> 219;
+                case 73 -> 150;
+                case 74 -> 103;
+                case 75 -> 233;
+                case 76 -> 68;
+                case 77 -> 139;
+                case 78 -> 180;
+                case 79 -> 8;
+                case 80 -> 125;
+                case 81 -> 220;
+                case 82 -> 169;
+                case 83 -> 92;
+                case 84 -> 91;
+                case 85 -> 62;
+                case 86 -> 49;
+                case 87 -> 130;
+                case 88 -> 35;
+                case 89 -> 167;
+                case 90 -> 108;
+                case 91 -> 160;
+                case 92 -> 39;
+                case 93 -> 129;
+                case 94 -> 97;
+                case 95 -> 64;
+                case 96 -> 9;
+                case 97 -> 241;
+                case 98 -> 207;
+                case 99 -> 58;
+                case 100 -> 13;
+                case 101 -> 116;
+                case 102 -> 36;
+                case 103 -> 148;
+                case 104 -> 146;
+                case 105 -> 72;
+                case 106 -> 231;
+                case 107 -> 181;
+                case 108 -> 141;
+                case 109 -> 57;
+                case 110 -> 86;
+                case 111 -> 51;
+                case 112 -> 172;
+                case 113 -> 120;
+                case 114 -> 114;
+                case 115 -> 31;
+                case 116 -> 43;
+                case 117 -> 174;
+                case 118 -> 33;
+                case 119 -> 135;
+                case 120 -> 246;
+                case 121 -> 123;
+                case 122 -> 159;
+                case 123 -> 2;
+                case 124 -> 147;
+                case 125 -> 144;
+                case 126 -> 255;
+                case 127 -> 44;
+                case 128 -> 45;
+                case 129 -> 153;
+                case 130 -> 206;
+                case 131 -> 195;
+                case 132 -> 27;
+                case 133 -> 211;
+                case 134 -> 163;
+                case 135 -> 253;
+                case 136 -> 185;
+                case 137 -> 210;
+                case 138 -> 217;
+                case 139 -> 121;
+                case 140 -> 244;
+                case 141 -> 157;
+                case 142 -> 183;
+                case 143 -> 186;
+                case 144 -> 249;
+                case 145 -> 30;
+                case 146 -> 26;
+                case 147 -> 194;
+                case 148 -> 221;
+                case 149 -> 252;
+                case 150 -> 22;
+                case 151 -> 5;
+                case 152 -> 37;
+                case 153 -> 110;
+                case 154 -> 6;
+                case 155 -> 32;
+                case 156 -> 177;
+                case 157 -> 118;
+                case 158 -> 29;
+                case 159 -> 198;
+                case 160 -> 1;
+                case 161 -> 84;
+                case 162 -> 238;
+                case 163 -> 122;
+                case 164 -> 234;
+                case 165 -> 162;
+                case 166 -> 212;
+                case 167 -> 73;
+                case 168 -> 225;
+                case 169 -> 182;
+                case 170 -> 196;
+                case 171 -> 203;
+                case 172 -> 200;
+                case 173 -> 199;
+                case 174 -> 213;
+                case 175 -> 65;
+                case 176 -> 41;
+                case 177 -> 76;
+                case 178 -> 133;
+                case 179 -> 128;
+                case 180 -> 173;
+                case 181 -> 46;
+                case 182 -> 192;
+                case 183 -> 80;
+                case 184 -> 254;
+                case 185 -> 251;
+                case 186 -> 23;
+                case 187 -> 11;
+                case 188 -> 152;
+                case 189 -> 16;
+                case 190 -> 25;
+                case 191 -> 126;
+                case 192 -> 245;
+                case 193 -> 63;
+                case 194 -> 239;
+                case 195 -> 240;
+                case 196 -> 28;
+                case 197 -> 77;
+                case 198 -> 50;
+                case 199 -> 96;
+                case 200 -> 83;
+                case 201 -> 132;
+                case 202 -> 4;
+                case 203 -> 61;
+                case 204 -> 178;
+                case 205 -> 52;
+                case 206 -> 47;
+                case 207 -> 42;
+                case 208 -> 164;
+                case 209 -> 151;
+                case 210 -> 184;
+                case 211 -> 69;
+                case 212 -> 154;
+                case 213 -> 104;
+                case 214 -> 229;
+                case 215 -> 102;
+                case 216 -> 170;
+                case 217 -> 189;
+                case 218 -> 98;
+                case 219 -> 236;
+                case 220 -> 226;
+                case 221 -> 113;
+                case 222 -> 56;
+                case 223 -> 232;
+                case 224 -> 38;
+                case 225 -> 136;
+                case 226 -> 54;
+                case 227 -> 18;
+                case 228 -> 94;
+                case 229 -> 140;
+                case 230 -> 106;
+                case 231 -> 119;
+                case 232 -> 75;
+                case 233 -> 40;
+                case 234 -> 156;
+                case 235 -> 93;
+                case 236 -> 209;
+                case 237 -> 90;
+                case 238 -> 247;
+                case 239 -> 14;
+                case 240 -> 208;
+                case 241 -> 191;
+                case 242 -> 85;
+                case 243 -> 81;
+                case 244 -> 137;
+                case 245 -> 70;
+                case 246 -> 124;
+                case 247 -> 0;
+                case 248 -> 95;
+                case 249 -> 243;
+                case 250 -> 7;
+                case 251 -> 168;
+                case 252 -> 82;
+                case 253 -> 109;
+                case 254 -> 142;
+                default -> 10;
+            };
+            int n7 = (n3 & 0xFF) - n6;
+            if (n7 < 0) {
+                n7 += 256;
+            }
+            if ((n5 = ((n3 & 0xFFFF) >>> 8) - n6) < 0) {
+                n5 += 256;
+            }
+            int n8 = 0;
+            while (n8 < cArray.length) {
+                int n9 = n8 % 2;
+                int n10 = n8;
+                char[] cArray2 = cArray;
+                char c2 = cArray[n10];
+                if (n9 == 0) {
+                    cArray2[n10] = (char)(c2 ^ n7);
+                    n7 = ((n7 >>> 3 | n7 << 5) ^ cArray[n8]) & 0xFF;
+                } else {
+                    cArray2[n10] = (char)(c2 ^ n5);
+                    n5 = ((n5 >>> 3 | n5 << 5) ^ cArray[n8]) & 0xFF;
+                }
+                ++n8;
+            }
+            s.d[n4] = new String(cArray).intern();
+        }
+        return d[n4];
+    }
+}
+
+
+

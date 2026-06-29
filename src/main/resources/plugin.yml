@@ -1,0 +1,104 @@
+name: SculkCore
+version: 1.0.0
+main: dev.sculkcore.SculkCorePlugin
+api-version: '1.21'
+softdepend: [packetevents, Vault]
+author: Antigravity
+
+commands:
+  itemlimit:
+    description: Set max item stack size for held item type.
+    permission: sculkcore.itemlimit
+    usage: /itemlimit <amount>
+  whitelistplus:
+    description: Extended whitelist management.
+    permission: op
+    usage: /whitelistplus
+  start:
+    description: Start the SMP event.
+    permission: sculkcore.start
+    usage: /start
+  stopgrace:
+    description: Stop grace period early.
+    permission: sculkcore.start
+    usage: /stopgrace
+  settings:
+    description: In-game config GUI.
+    permission: sculkcore.settings
+    usage: /settings
+  ritual:
+    description: Perform ritual on held item.
+    permission: sculkcore.ritual
+    usage: /ritual
+  banitem:
+    description: Ban item in hand.
+    permission: sculkcore.banitem
+    usage: /banitem
+  enchant:
+    description: Custom enchanting.
+    permission: sculkcore.enchant
+    usage: /enchant
+  sckit:
+    description: Kit system.
+    permission: sculkcore.sckit
+    usage: /sckit
+  vanish:
+    description: Toggle vanish state.
+    permission: sculkcore.vanish
+    usage: /vanish
+  invsee:
+    description: View player inventory.
+    permission: sculkcore.invsee
+    usage: /invsee <player>
+  endersee:
+    description: View player ender chest.
+    permission: sculkcore.endersee
+    usage: /endersee <player>
+  setcustomspawn:
+    description: Set custom spawn point.
+    permission: sculkcore.setcustomspawn
+    usage: /setcustomspawn
+  setrespawnspawn:
+    description: Set respawn point.
+    permission: sculkcore.setrespawnspawn
+    usage: /setrespawnspawn
+  worldtp:
+    description: Teleport to world.
+    permission: sculkcore.worldtp
+    usage: /worldtp <world>
+  saltar:
+    description: Altar/launch mechanic.
+    permission: sculkcore.saltar
+    usage: /saltar
+  sbroadcast:
+    description: Server broadcast.
+    permission: sculkcore.sbroadcast
+    usage: /sbroadcast <message>
+  reply:
+    description: Reply to private message.
+    aliases: [r]
+    permission: sculkcore.reply
+    default: true
+    usage: /reply <message>
+
+permissions:
+  sculkcore.*:
+    description: Gives access to all SculkCore commands and features.
+    default: op
+    children:
+      sculkcore.itemlimit: true
+      sculkcore.start: true
+      sculkcore.settings: true
+      sculkcore.ritual: true
+      sculkcore.banitem: true
+      sculkcore.enchant: true
+      sculkcore.sckit: true
+      sculkcore.vanish: true
+      sculkcore.invsee: true
+      sculkcore.endersee: true
+      sculkcore.setcustomspawn: true
+      sculkcore.setrespawnspawn: true
+      sculkcore.worldtp: true
+      sculkcore.saltar: true
+      sculkcore.sbroadcast: true
+      sculkcore.reply: true
