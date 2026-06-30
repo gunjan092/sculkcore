@@ -1,4 +1,4 @@
-﻿package dev.sculkcore.listeners;
+package dev.sculkcore.listeners;
 
 import dev.sculkcore.SculkCorePlugin;
 import dev.sculkcore.game.GameState;
@@ -125,11 +125,16 @@ public class CombatLimitersListener implements Listener {
 
         Player player = event.getPlayer();
         ItemStack held = player.getInventory().getItemInMainHand();
-        if (held.getType().toString().contains("_SPEAR")) {
-            // Lunge Enchantment check
-            NamespacedKey lungeKey = new NamespacedKey("minecraft", "lunge");
-            Enchantment lungeEnchant = Enchantment.getByKey(lungeKey);
-            if (lungeEnchant != null && held.getEnchantments().containsKey(lungeEnchant)) {
+        if (held != null && held.getType().toString().contains("_SPEAR")) {
+            // Retrieve Lunge enchantment dynamically by key name
+            Enchantment lungeEnchant = null;
+            for (Enchantment enchant : held.getEnchantments().keySet()) {
+                if (enchant.getKey().getKey().equalsIgnoreCase("lunge")) {
+                    lungeEnchant = enchant;
+                    break;
+                }
+            }
+            if (lungeEnchant != null) {
                 int lungeCd = plugin.getConfig().getInt("rules.lunge_cooldown", 2);
                 if (GameState.isCooldownActive(player.getUniqueId(), "lunge")) {
                     event.setCancelled(true);
@@ -329,4 +334,3 @@ public class CombatLimitersListener implements Listener {
         }
     }
 }
-

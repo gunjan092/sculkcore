@@ -203,8 +203,8 @@ public class VillagerAnchorListener implements Listener {
         ItemStack head = createVillagerHead(villager);
         player.getInventory().addItem(head);
 
-        // Safe location at Y=70000
-        Location location = new Location(player.getWorld(), 0.0, 70000.0, 0.0);
+        // Safe location at Y=70000 in primary Overworld world
+        Location location = new Location(Bukkit.getWorlds().getFirst(), 0.0, 70000.0, 0.0);
         forceLoadChunk(location);
 
         bypassMove.put(villager.getUniqueId(), System.currentTimeMillis() + 1000);

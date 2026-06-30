@@ -141,6 +141,7 @@ public final class SculkCorePlugin extends JavaPlugin implements Listener {
         
         SettingsCommand settingsCommand = new SettingsCommand(this);
         getCommand("settings").setExecutor(settingsCommand);
+        getServer().getPluginManager().registerEvents(settingsCommand, this);
         
         this.banItemCommand = new BanItemCommand(this);
         getServer().getPluginManager().registerEvents(this.banItemCommand, this);
@@ -182,6 +183,73 @@ public final class SculkCorePlugin extends JavaPlugin implements Listener {
         attributeSwapping();
         antiXray();
         
+        // Force load pocket chunk for villagers
+        try {
+            if (!Bukkit.getWorlds().isEmpty()) {
+                org.bukkit.Location hiddenLoc = new org.bukkit.Location(Bukkit.getWorlds().getFirst(), 0.0, 70000.0, 0.0);
+                org.bukkit.Chunk chunk = hiddenLoc.getChunk();
+                chunk.setForceLoaded(true);
+                chunk.load(true);
+            }
+        } catch (Exception e) {
+            getLogger().warning("Failed to force load villager pocket chunk: " + e.getMessage());
+        }
+
+        // Start Combat BossBar Task
+        new org.bukkit.scheduler.BukkitRunnable() {
+            private final java.util.Map<java.util.UUID, org.bukkit.boss.BossBar> bars = new java.util.HashMap<>();
+
+            @Override
+            public void run() {
+                if (!getConfig().getBoolean("rules.combat_system", false)) {
+                    for (org.bukkit.boss.BossBar bar : bars.values()) {
+                        bar.removeAll();
+                        bar.setVisible(false);
+                    }
+                    bars.clear();
+                    return;
+                }
+
+                String displayMode = getConfig().getString("config.combat_display", "BOSSBAR");
+                boolean useBossBar = displayMode.equalsIgnoreCase("BOSSBAR") || displayMode.equalsIgnoreCase("BOTH");
+
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    java.util.UUID uuid = player.getUniqueId();
+                    double remaining = dev.sculkcore.game.GameState.getCooldownRemaining(uuid, "combat");
+
+                    if (remaining > 0 && useBossBar) {
+                        org.bukkit.boss.BossBar bar = bars.computeIfAbsent(uuid, k -> {
+                            org.bukkit.boss.BossBar b = Bukkit.createBossBar(
+                                    "",
+                                    org.bukkit.boss.BarColor.RED,
+                                    org.bukkit.boss.BarStyle.SEGMENTED_20
+                            );
+                            b.addPlayer(player);
+                            b.setVisible(true);
+                            return b;
+                        });
+
+                        int totalTime = getConfig().getInt("config.combat_tag_time", 30);
+                        double progress = Math.min(1.0, Math.max(0.0, remaining / (double) totalTime));
+                        bar.setProgress(progress);
+                        
+                        long minutes = (long) remaining / 60;
+                        long secs = (long) remaining % 60;
+                        String timeStr = String.format("%d:%02d", minutes, secs);
+                        String titlePattern = getConfig().getString("rules.combat_bar_title", "&cCombat Tag: &f&l<combat_time>");
+                        String title = titlePattern.replace("<combat_time>", timeStr);
+                        bar.setTitle(getConfigManager().translateColor(title));
+                    } else {
+                        org.bukkit.boss.BossBar bar = bars.remove(uuid);
+                        if (bar != null) {
+                            bar.removePlayer(player);
+                            bar.setVisible(false);
+                        }
+                    }
+                }
+            }
+        }.runTaskTimer(this, 0L, 5L);
+
         if (getServer().getPluginManager().getPlugin("packetevents") != null) {
             try {
                 PacketEvents.getAPI().init();

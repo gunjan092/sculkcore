@@ -22,10 +22,10 @@ public class MinimapBlocker implements Listener {
         Player player = event.getPlayer();
         if (plugin.getConfig().getBoolean("rules.minimap_fair", false)) {
             // Sends the fair-play minimap disable sequence
-            plugin.sendTellrawAsync("§f§a§i§r§x§a§e§r§o", player);
+            plugin.sendTellrawAsync("\u00a7f\u00a7a\u00a7i\u00a7r\u00a7x\u00a7a\u00a7e\u00a7r\u00a7o", player);
         } else {
             // Sends the total minimap disable sequence
-            plugin.sendTellrawAsync("§n§o§m§i§n§i§m§a§p", player);
+            plugin.sendTellrawAsync("\u00a7n\u00a7o\u00a7m\u00a7i\u00a7n\u00a7i\u00a7m\u00a7a\u00a7p", player);
         }
     }
 }

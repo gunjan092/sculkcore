@@ -8,16 +8,40 @@ config:
   before_start_border: 1000
   # Border size at start of event
   start_border_size: 1000
+  # Steak given to every player on /start
+  start_steak: 0
+  # Launch & glide all players into the air on /start
+  launch: true
+  # Players are immune (no hunger/damage) while the border is <= before_start_border
+  immunity_during_grace: true
+  # Commands run by console on /start (edit via /settings -> Start Options)
+  start_commands: []
   # AFK protection time command setting
   afk_protection_time_command: 300
   # AFK protection time in seconds
   afk_protection_time: 300
-  # Particle color for altar ritual (hex format)
-  ritual_particle_color: "#FF0000"
+  # Particle color for altar ritual (hex "#RRGGBB" or a color name:
+  # red green blue yellow aqua fuchsia lime orange purple white black gray)
+  ritual_particle_color: "white"
   # Duration of the altar ritual in seconds
   ritual_duration: 10
   # Radius of the altar ritual effect
   ritual_radius: 5
+  # --- Combat Options (edit via /settings -> Combat Options) ---
+  # Combat tag duration in seconds
+  combat_tag_time: 30
+  # Minimum damage required to combat-tag a player
+  combat_damage: 1
+  # Where the combat timer shows: BOSSBAR / ACTIONBAR / WEAPON_COOLDOWN / MESSAGES / NONE
+  combat_display: "BOSSBAR"
+  # Combat-log punishment: ANNOUNCE / KILL
+  combat_log_mode: "ANNOUNCE"
+  # Ban restocking (opening containers) while in combat
+  combat_log_no_restock: false
+  # Ban elytra use while in combat
+  combat_elytra: false
+  # Ban riptide/trident use while in combat
+  combat_trident: false
 
 # Custom item settings (e.g. Golden Head)
 goldenhead:
@@ -109,6 +133,8 @@ rules:
   ban_all_tipped_arrows: false
   # Ban breach enchantment swapping
   ban_breach_swapping: false
+  # Ban draining (water/lava removal exploits)
+  anti_draining: false
   # Ban Tier 2 potions
   ban_tier_2_potions: false
   # Prevent string duping exploits

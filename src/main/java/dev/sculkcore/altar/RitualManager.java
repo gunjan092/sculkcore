@@ -41,11 +41,14 @@ public class RitualManager {
                 case "BLUE": return Color.BLUE;
                 case "GREEN": return Color.GREEN;
                 case "YELLOW": return Color.YELLOW;
-                case "PINK": return Color.FUCHSIA;
+                case "PINK": case "FUCHSIA": return Color.FUCHSIA;
                 case "ORANGE": return Color.ORANGE;
                 case "PURPLE": return Color.PURPLE;
                 case "WHITE": return Color.WHITE;
                 case "BLACK": return Color.BLACK;
+                case "AQUA": return Color.AQUA;
+                case "LIME": return Color.LIME;
+                case "GRAY": case "GREY": return Color.GRAY;
             }
         } catch (Exception ignored) {}
         return Color.RED;
